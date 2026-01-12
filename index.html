@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../frontend/assets/images/icon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         * {
             margin: 0;
@@ -26,20 +26,19 @@
         .header {
             background: #1D428A;
             color: white;
-            padding: 48px 20px 32px 20px;
+            padding: 24px 20px 20px 20px;
             text-align: center;
             box-shadow: 0 4px 24px rgba(29, 66, 138, 0.10);
-            /* No border-radius for square corners */
         }
         .header img {
-            width: 120px;
-            height: 120px;
+            width: 64px;
+            height: 64px;
             margin-bottom: 0.2em;
-            border-radius: 32px;
+            border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.10);
         }
         .header h1 {
-            font-size: 2.5em;
+            font-size: 1.6em;
             font-weight: 800;
             margin-top: 0.05em;
             margin-bottom: 0;
@@ -49,7 +48,7 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 16px 32px 16px;
+            padding: 0 20px 32px 20px;
         }
         
         .section {
@@ -214,55 +213,157 @@
             font-weight: 700;
             margin-left: 10px;
         }
+
+        /* Support/Coffee Section */
+        .support-banner {
+            background: linear-gradient(135deg, #FFDD00 0%, #FFB800 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(255, 184, 0, 0.3);
+        }
+        .support-banner h3 {
+            color: #333;
+            margin: 0 0 12px 0;
+            font-size: 1.2em;
+        }
+        .support-banner p {
+            color: #444;
+            margin: 0 0 16px 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .support-banner a.coffee-btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1em;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .support-banner a.coffee-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Collapsible sections */
+        .collapsible-section {
+            margin-top: 32px;
+        }
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 16px 0;
+            border-bottom: 2px solid #C8102E;
+            user-select: none;
+        }
+        .collapsible-header h2 {
+            font-size: 1.2em;
+            font-weight: 800;
+            color: #1D428A;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+        .collapsible-header .toggle-icon {
+            font-size: 1.4em;
+            color: #1D428A;
+            transition: transform 0.3s;
+        }
+        .collapsible-header.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            font-size: 0.85em;
+        }
+        .collapsible-content.open {
+            max-height: 5000px;
+            transition: max-height 0.6s ease-in;
+        }
+        .collapsible-content-inner {
+            padding-top: 16px;
+        }
         
         @media (max-width: 768px) {
             .header {
-                padding: 32px 8px 18px 8px;
-                /* No border-radius for square corners */
+                padding: 16px 16px 12px 16px;
             }
             .header img {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 0.15em;
+                width: 48px;
+                height: 48px;
+                margin-bottom: 0.1em;
+                border-radius: 12px;
             }
             .header h1 {
-                font-size: 1.5em;
+                font-size: 1.3em;
             }
             .container {
-                padding: 24px 4px 16px 4px;
+                padding: 16px 16px 24px 16px;
             }
             .section {
-                padding: 18px 6px 14px 6px;
+                padding: 20px 16px 16px 16px;
                 border-radius: 12px;
             }
             .section-title {
                 font-size: 1.1em;
-                margin-bottom: 16px;
+                margin-top: 32px;
+                margin-bottom: 12px;
             }
             .faq-item {
-                padding: 14px 6px;
-                border-radius: 8px;
+                padding: 12px 0;
             }
             .footer {
-                padding: 18px 6px 10px 6px;
+                padding: 20px 16px 14px 16px;
                 border-radius: 12px;
+                margin-top: 40px;
+            }
+            .support-banner {
+                padding: 20px 16px;
+                margin-top: 16px;
+            }
+            .support-banner h3 {
+                font-size: 1.1em;
+            }
+            .support-banner p {
+                font-size: 0.9em;
+            }
+            .collapsible-header h2 {
+                font-size: 1.05em;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="icon.png" alt="HeatCheckr icon" style="border-radius: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.10);" />
+        <img src="icon.png" alt="HeatCheckr icon" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10);" />
         <h1>HeatCheckr</h1>
     </div>
     
     <div class="container">
+        <!-- Support the Project Banner -->
+        <div class="support-banner">
+            <h3>☕ Support HeatCheckr</h3>
+            <p>I'm a solo developer building this app in my free time. If you enjoy HeatCheckr and want to help cover server costs and keep the app running, consider buying me a coffee, or in my case more like a Gatorade. Every contribution helps!</p>
+            <a href="https://buymeacoffee.com/jdkdevelopment" target="_blank" class="coffee-btn">☕ Support the project</a>
+        </div>
+
         <div id="support">
-            <h2 class="section-title">Support</h2>
+            <h2 class="section-title">Contact & Support</h2>
             <div class="contact-item">
                 <strong>📧 Email</strong>
+                <p style="margin-top: 8px; font-size: 0.95em; color: #666;">If you have questions, need help, want to report a bug, or suggest a feature, just email me or open a ticket on Github. I happily read and reply to every message!</p>
                 <a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a>
-                <p style="margin-top: 8px; font-size: 0.95em; color: #666;">I'm a solo developer. If you have questions, need help, want to report a bug, or suggest a feature, just email me. I happily read and reply to every message!</p>
+                <br>
+                <a href="https://github.com/JoKuebler/HeatCheckr-App" target="_blank" class="button button-secondary" style="margin-top:10px;">View on GitHub</a>
             </div>
         </div>
 
@@ -277,7 +378,13 @@
             <div class="faq-item">
                 <div class="faq-question">When is data updated?</div>
                 <div class="faq-answer">
-                    Data is updated every morning around 6 AM CET with analysis of yesterday's games.
+                    Data is updated every morning around 6 AM CET with analysis of yesterday's games. Scheduled games for today are also shown so you can see what's coming up.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I see games from previous days?</div>
+                <div class="faq-answer">
+                    Yes! You can swipe left to browse historical games from past days. This is great for catching up on games you might have missed throughout the week.
                 </div>
             </div>
             <div class="faq-item">
@@ -317,6 +424,12 @@
                 </div>
             </div>
             <div class="faq-item">
+                <div class="faq-question">Can I filter which labels I see?</div>
+                <div class="faq-answer">
+                    Yes! Tap the settings icon (three lines) in the top right corner to toggle different label categories on or off. This lets you customize what information you see for each game.
+                </div>
+            </div>
+            <div class="faq-item">
                 <div class="faq-question">Is this app affiliated with the NBA?</div>
                 <div class="faq-answer">
                     No, HeatCheckr is an independent app created by a fan. I use publicly available data from NBA.com and link to official NBA highlight videos. I'm not endorsed by or affiliated with the NBA.
@@ -325,113 +438,141 @@
             <div class="faq-item">
                 <div class="faq-question">Why is the app free?</div>
                 <div class="faq-answer">
-                    I built this as a passion project to solve my own problem as a European NBA fan. There's an optional "Buy me a Gatorade" support option, but the core app is and will remain free.
+                    I built this as a passion project to solve my own problem as a European NBA fan. There's an optional "Buy me a Coffee" support option to help cover server costs, but the core app is and will remain free.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you plan to add more features?</div>
+                <div class="faq-answer">
+                    Absolutely! I have many ideas for future updates including more detailed game breakdowns, playoff tracking, and personalization options. If you have feature requests, feel free to email me!
                 </div>
             </div>
         </div>
 
-        <div id="privacy" style="font-size:0.85em;">
-            <h2 class="section-title">Privacy Policy</h2>
-            <p class="updated">Last updated: December 29, 2025</p>
-            <h3>What Data We Collect</h3>
-            <p>HeatCheckr is designed to be privacy-friendly. Here's what we do and don't collect:</p>
-            <ul>
-                <li><strong>No personal information:</strong> We don't ask for your name, email, or any identifying information.</li>
-                <li><strong>No account required:</strong> You can use HeatCheckr without creating an account.</li>
-                <li><strong>No analytics tracking:</strong> We don't use third-party analytics services to track your behavior.</li>
-                <li><strong>No advertising:</strong> We don't display ads or share data with advertisers.</li>
-            </ul>
-            <h3>Local Storage</h3>
-            <p>HeatCheckr stores the following data locally on your device:</p>
-            <ul>
-                <li><strong>Cached game data:</strong> Recent game information is cached to improve app performance and allow offline viewing.</li>
-                <li><strong>Your preferences:</strong> Settings like which label categories you've toggled are stored locally on your device.</li>
-                <li><strong>Warning acknowledgments:</strong> We remember if you've seen certain one-time warnings (like the highlight spoiler warning).</li>
-            </ul>
-            <p>This data never leaves your device and is not transmitted to our servers.</p>
-            <h3>Network Requests</h3>
-            <p>The app makes network requests to:</p>
-            <ul>
-                <li><strong>Our API server:</strong> To fetch NBA game data and excitement scores. These requests don't include any personal information.</li>
-                <li><strong>NBA.com:</strong> When you tap to view highlights, you're taken to the official NBA website. We don't control their privacy practices.</li>
-            </ul>
-            <h3>Third-Party Services</h3>
-            <p>HeatCheckr uses the following third-party services:</p>
-            <ul>
-                <li><strong>NBA API:</strong> We fetch publicly available game statistics from the NBA. No user data is shared.</li>
-                <li><strong>Railway:</strong> Our backend is hosted on Railway. Server logs may contain standard HTTP request information (IP addresses, request timestamps) but we don't actively collect or analyze this data.</li>
-            </ul>
-            <h3>Children's Privacy</h3>
-            <p>HeatCheckr does not knowingly collect any personal information from children under 13. The app is suitable for all ages as it simply displays sports statistics.</p>
-            <h3>Changes to This Policy</h3>
-            <p>We may update this Privacy Policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this page.</p>
-            <h3>Contact Us</h3>
-            <p>If you have any questions about this Privacy Policy, you can contact us at:</p>
-            <p><a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
+        <!-- Collapsible Privacy Policy -->
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection(this)">
+                <h2>📜 Privacy Policy</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <p class="updated">Last updated: December 29, 2025</p>
+                    <h3>What Data We Collect</h3>
+                    <p>HeatCheckr is designed to be privacy-friendly. Here's what we do and don't collect:</p>
+                    <ul>
+                        <li><strong>No personal information:</strong> We don't ask for your name, email, or any identifying information.</li>
+                        <li><strong>No account required:</strong> You can use HeatCheckr without creating an account.</li>
+                        <li><strong>No analytics tracking:</strong> We don't use third-party analytics services to track your behavior.</li>
+                        <li><strong>No advertising:</strong> We don't display ads or share data with advertisers.</li>
+                    </ul>
+                    <h3>Local Storage</h3>
+                    <p>HeatCheckr stores the following data locally on your device:</p>
+                    <ul>
+                        <li><strong>Cached game data:</strong> Recent game information is cached to improve app performance and allow offline viewing.</li>
+                        <li><strong>Your preferences:</strong> Settings like which label categories you've toggled are stored locally on your device.</li>
+                        <li><strong>Warning acknowledgments:</strong> We remember if you've seen certain one-time warnings (like the highlight spoiler warning).</li>
+                    </ul>
+                    <p>This data never leaves your device and is not transmitted to our servers.</p>
+                    <h3>Network Requests</h3>
+                    <p>The app makes network requests to:</p>
+                    <ul>
+                        <li><strong>Our API server:</strong> To fetch NBA game data and excitement scores. These requests don't include any personal information.</li>
+                        <li><strong>NBA.com:</strong> When you tap to view highlights, you're taken to the official NBA website. We don't control their privacy practices.</li>
+                    </ul>
+                    <h3>Third-Party Services</h3>
+                    <p>HeatCheckr uses the following third-party services:</p>
+                    <ul>
+                        <li><strong>NBA API:</strong> We fetch publicly available game statistics from the NBA. No user data is shared.</li>
+                        <li><strong>Railway:</strong> Our backend is hosted on Railway. Server logs may contain standard HTTP request information (IP addresses, request timestamps) but we don't actively collect or analyze this data.</li>
+                    </ul>
+                    <h3>Children's Privacy</h3>
+                    <p>HeatCheckr does not knowingly collect any personal information from children under 13. The app is suitable for all ages as it simply displays sports statistics.</p>
+                    <h3>Changes to This Policy</h3>
+                    <p>We may update this Privacy Policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this page.</p>
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, you can contact us at:</p>
+                    <p><a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
+                </div>
+            </div>
         </div>
 
-        <div id="terms" style="font-size:0.85em;">
-            <h2 class="section-title">Terms of Service</h2>
-            <p class="updated">Last updated: December 29, 2025</p>
-            <h3>1. Acceptance of Terms</h3>
-            <p>By downloading, installing, or using HeatCheckr ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
-            <h3>2. Description of Service</h3>
-            <p>HeatCheckr is a free mobile application that provides spoiler-free NBA game excitement indicators. The App helps users decide which recorded games to watch without revealing final scores or outcomes.</p>
-            <ul>
-                <li>Excitement scores for NBA games</li>
-                <li>Descriptive labels about game flow and statistics</li>
-                <li>Links to official NBA game highlights</li>
-            </ul>
-            <h3>3. Free Service</h3>
-            <p>HeatCheckr is provided free of charge. We do not currently offer premium features or subscriptions. We may accept voluntary tips/donations through third-party services, but these are entirely optional and provide no additional features.</p>
-            <h3>4. NBA Content Disclaimer</h3>
-            <p>HeatCheckr is not affiliated with, endorsed by, or connected to the National Basketball Association (NBA) or any of its teams. All NBA-related content, including team names, abbreviations, and statistics, are the property of the NBA and its licensors.</p>
-            <p>We use publicly available NBA statistics through official APIs for informational purposes only. Team logos and other NBA intellectual property are used under fair use for identification purposes.</p>
-            <h3>5. User Conduct</h3>
-            <p>You agree not to:</p>
-            <ul>
-                <li>Reverse engineer, decompile, or disassemble any part of the App</li>
-                <li>Attempt to gain unauthorized access to our servers or systems</li>
-                <li>Use the App for any unlawful purpose</li>
-                <li>Redistribute or resell the App or its content</li>
-                <li>Scrape or automatically collect data from our API</li>
-            </ul>
-            <h3>6. Intellectual Property</h3>
-            <p>The HeatCheckr app, including its design, code, and original content (excluding NBA data), is owned by JDK Development. You may not copy, modify, or distribute any part of the App without our written permission.</p>
-            <h3>7. Disclaimer of Warranties</h3>
-            <p>HeatCheckr is provided "as is" without warranties of any kind. We do not guarantee:</p>
-            <ul>
-                <li>The accuracy or completeness of game data</li>
-                <li>Uninterrupted or error-free operation</li>
-                <li>That the App will meet your specific requirements</li>
-                <li>The availability of historical game data</li>
-            </ul>
-            <h3>8. Limitation of Liability</h3>
-            <p>To the maximum extent permitted by law, JDK Development shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App, including but not limited to:</p>
-            <ul>
-                <li>Exposure to game spoilers through linked content</li>
-                <li>Inaccurate excitement scores or labels</li>
-                <li>Service interruptions or data loss</li>
-            </ul>
-            <h3>9. External Links</h3>
-            <p>The App contains links to third-party websites (such as NBA.com for highlights). We are not responsible for the content or privacy practices of these external sites. Visiting these links is at your own discretion.</p>
-            <h3>10. Modifications to Service</h3>
-            <p>We reserve the right to modify, suspend, or discontinue HeatCheckr at any time without notice. We may also update these Terms of Service from time to time. Continued use of the App after changes constitutes acceptance of the new terms.</p>
-            <h3>11. Termination</h3>
-            <p>We may terminate or suspend your access to the App at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users or our services.</p>
-            <h3>12. Governing Law</h3>
-            <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
-            <h3>13. Contact Information</h3>
-            <p>For questions about these Terms of Service, please contact me at:</p>
-            <p><a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
+        <!-- Collapsible Terms of Service -->
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection(this)">
+                <h2>📋 Terms of Service</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <p class="updated">Last updated: December 29, 2025</p>
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By downloading, installing, or using HeatCheckr ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
+                    <h3>2. Description of Service</h3>
+                    <p>HeatCheckr is a free mobile application that provides spoiler-free NBA game excitement indicators. The App helps users decide which recorded games to watch without revealing final scores or outcomes.</p>
+                    <ul>
+                        <li>Excitement scores for NBA games</li>
+                        <li>Descriptive labels about game flow and statistics</li>
+                        <li>Links to official NBA game highlights</li>
+                    </ul>
+                    <h3>3. Free Service</h3>
+                    <p>HeatCheckr is provided free of charge. We do not currently offer premium features or subscriptions. We may accept voluntary tips/donations through third-party services, but these are entirely optional and provide no additional features.</p>
+                    <h3>4. NBA Content Disclaimer</h3>
+                    <p>HeatCheckr is not affiliated with, endorsed by, or connected to the National Basketball Association (NBA) or any of its teams. All NBA-related content, including team names, abbreviations, and statistics, are the property of the NBA and its licensors.</p>
+                    <p>We use publicly available NBA statistics through official APIs for informational purposes only. Team logos and other NBA intellectual property are used under fair use for identification purposes.</p>
+                    <h3>5. User Conduct</h3>
+                    <p>You agree not to:</p>
+                    <ul>
+                        <li>Reverse engineer, decompile, or disassemble any part of the App</li>
+                        <li>Attempt to gain unauthorized access to our servers or systems</li>
+                        <li>Use the App for any unlawful purpose</li>
+                        <li>Redistribute or resell the App or its content</li>
+                        <li>Scrape or automatically collect data from our API</li>
+                    </ul>
+                    <h3>6. Intellectual Property</h3>
+                    <p>The HeatCheckr app, including its design, code, and original content (excluding NBA data), is owned by JDK Development. You may not copy, modify, or distribute any part of the App without our written permission.</p>
+                    <h3>7. Disclaimer of Warranties</h3>
+                    <p>HeatCheckr is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                    <ul>
+                        <li>The accuracy or completeness of game data</li>
+                        <li>Uninterrupted or error-free operation</li>
+                        <li>That the App will meet your specific requirements</li>
+                        <li>The availability of historical game data</li>
+                    </ul>
+                    <h3>8. Limitation of Liability</h3>
+                    <p>To the maximum extent permitted by law, JDK Development shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App, including but not limited to:</p>
+                    <ul>
+                        <li>Exposure to game spoilers through linked content</li>
+                        <li>Inaccurate excitement scores or labels</li>
+                        <li>Service interruptions or data loss</li>
+                    </ul>
+                    <h3>9. External Links</h3>
+                    <p>The App contains links to third-party websites (such as NBA.com for highlights). We are not responsible for the content or privacy practices of these external sites. Visiting these links is at your own discretion.</p>
+                    <h3>10. Modifications to Service</h3>
+                    <p>We reserve the right to modify, suspend, or discontinue HeatCheckr at any time without notice. We may also update these Terms of Service from time to time. Continued use of the App after changes constitutes acceptance of the new terms.</p>
+                    <h3>11. Termination</h3>
+                    <p>We may terminate or suspend your access to the App at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users or our services.</p>
+                    <h3>12. Governing Law</h3>
+                    <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+                    <h3>13. Contact Information</h3>
+                    <p>For questions about these Terms of Service, please contact me at:</p>
+                    <p><a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
+                </div>
+            </div>
         </div>
-
-
 
         <div class="footer">
             <p>Not affiliated with the NBA</p>
             <p style="margin-top: 10px; font-size: 0.9em;">© 2025 HeatCheckr. All rights reserved.</p>
         </div>
     </div>
+
+    <script>
+        function toggleSection(header) {
+            header.classList.toggle('open');
+            const content = header.nextElementSibling;
+            content.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
