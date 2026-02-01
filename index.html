@@ -1,617 +1,979 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeatCheckr - Support & Help</title>
-    <meta name="description" content="Support and help for HeatCheckr App - Find exciting NBA games worth watching">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html, body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif !important;
-            line-height: 1.7;
-            color: #222;
-            background: #f6f7fb;
-            font-size: 18px;
-        }
-        
-        .header {
-            background: #1D428A;
-            color: white;
-            padding: 24px 20px 20px 20px;
-            text-align: center;
-            box-shadow: 0 4px 24px rgba(29, 66, 138, 0.10);
-        }
-        .header img {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 0.2em;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-        }
-        .header h1 {
-            font-size: 1.6em;
-            font-weight: 800;
-            margin-top: 0.05em;
-            margin-bottom: 0;
-            letter-spacing: -1px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px 32px 20px;
-        }
-        
-        .section {
-            background: #fff;
-            border-radius: 20px;
-            padding: 40px 32px 32px 32px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-            border: 1px solid #ececec;
-        }
-        
-        .section-title {
-            font-size: 1.35em;
-            font-weight: 800;
-            color: #1D428A;
-            margin-top: 48px;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #C8102E;
-            display: inline-block;
-            letter-spacing: -0.5px;
-        }
-        
-        h3 {
-            color: #1D428A;
-            font-size: 1.4em;
-            font-weight: 700;
-            margin: 25px 0 12px;
-        }
-        
-        .contact-item {
-            padding: 0;
-            margin: 0;
-            border: none;
-            background: none;
-            box-shadow: none;
-        }
-        .contact-buttons {
-            display: flex;
-            gap: 16px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        .contact-btn svg {
-            flex-shrink: 0;
-        }
-        .email-btn {
-            background: #1D428A;
-            color: #fff;
-            box-shadow: 0 2px 12px rgba(29, 66, 138, 0.2);
-        }
-        .email-btn:hover {
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(29, 66, 138, 0.3);
-        }
-        .github-btn {
-            background: #24292e;
-            color: #fff;
-            box-shadow: 0 2px 12px rgba(36, 41, 46, 0.2);
-        }
-        .github-btn:hover {
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(36, 41, 46, 0.3);
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HeatCheckr — Know Before You Watch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ─── Reset & Vars ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .faq-item {
-            padding: 0;
-            margin: 28px 0 0 0;
-            border: none;
-            background: none;
-            box-shadow: none;
-        }
-        .faq-question {
-            color: #1D428A;
-            font-weight: 800;
-            font-size: 1.08em;
-            margin-bottom: 8px;
-            letter-spacing: -0.2px;
-        }
-        .faq-answer {
-            color: #333;
-            line-height: 1.7;
-            font-size: 1em;
-        }
-        
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #C8102E 0%, #a00d25 100%);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            margin: 10px 10px 10px 0;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
-        }
-        
-        .button:hover {
-            background: linear-gradient(135deg, #a00d25 0%, #7a0a1c 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
-        }
-        
-        .button-secondary {
-            background: linear-gradient(135deg, #1D428A 0%, #0d1f47 100%);
-            box-shadow: 0 4px 12px rgba(29, 66, 138, 0.3);
-        }
-        
-        .button-secondary:hover {
-            background: linear-gradient(135deg, #0d1f47 0%, #050f22 100%);
-            box-shadow: 0 6px 20px rgba(29, 66, 138, 0.4);
-        }
-        
-        a {
-            color: #C8102E;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        
-        a:hover {
-            color: #1D428A;
-        }
-        
-        ul {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-        
-        li {
-            margin: 10px 0;
-            color: #4a4a4a;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 64px;
-            padding: 36px 20px 24px 20px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-            border: 1px solid #ececec;
-        }
-        .footer p {
-            color: #888;
-            margin: 8px 0;
-            font-size: 0.98em;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, rgba(200, 16, 46, 0.1) 0%, rgba(29, 66, 138, 0.1) 100%);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: #C8102E;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 700;
-            margin-left: 10px;
-        }
+  :root {
+    --bg: #0F1115;
+    --card: #181C22;
+    --card-hover: #1E232B;
+    --border: #2A3040;
+    --text: #F5F7FA;
+    --text-dim: #6B7A8A;
+    --text-mid: #9BA7B6;
+    --accent: #C9082A;
+    --accent-dim: rgba(201, 8, 42, 0.12);
+    --accent-glow: rgba(201, 8, 42, 0.25);
+    --green: #5BA3AD;
+    --blue: #5BA3AD;
+    --amber: #C9A857;
+    --purple: #CD7E64;
+    --font-display: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    /* Label categories (matching app theme) */
+    --cat-significance: #C9A857;
+    --cat-competitiveness: #5BA3AD;
+    --cat-highlights: #CD7E64;
+    --cat-lowlights: #6B7A8A;
+  }
 
-        /* Support/Coffee Section */
-        .support-banner {
-            background: linear-gradient(135deg, #FFDD00 0%, #FFB800 100%);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 24px;
-            margin-bottom: 16px;
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(255, 184, 0, 0.3);
-        }
-        .support-banner h3 {
-            color: #333;
-            margin: 0 0 12px 0;
-            font-size: 1.2em;
-        }
-        .support-banner p {
-            color: #444;
-            margin: 0 0 16px 0;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        .support-banner a.coffee-btn {
-            display: inline-block;
-            background: #333;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1em;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .support-banner a.coffee-btn:hover {
-            background: #000;
-            transform: translateY(-2px);
-        }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-        /* Collapsible sections */
-        .collapsible-section {
-            margin-top: 32px;
-        }
-        .collapsible-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            padding: 16px 0;
-            border-bottom: 2px solid #C8102E;
-            user-select: none;
-        }
-        .collapsible-header h2 {
-            font-size: 1.2em;
-            font-weight: 800;
-            color: #1D428A;
-            margin: 0;
-            letter-spacing: -0.5px;
-        }
-        .collapsible-header .toggle-icon {
-            font-size: 1.4em;
-            color: #1D428A;
-            transition: transform 0.3s;
-        }
-        .collapsible-header.open .toggle-icon {
-            transform: rotate(180deg);
-        }
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            font-size: 0.85em;
-        }
-        .collapsible-content.open {
-            max-height: 5000px;
-            transition: max-height 0.6s ease-in;
-        }
-        .collapsible-content-inner {
-            padding-top: 16px;
-        }
-        
-        @media (max-width: 768px) {
-            .header {
-                padding: 16px 16px 12px 16px;
-            }
-            .header img {
-                width: 48px;
-                height: 48px;
-                margin-bottom: 0.1em;
-                border-radius: 12px;
-            }
-            .header h1 {
-                font-size: 1.3em;
-            }
-            .container {
-                padding: 16px 16px 24px 16px;
-            }
-            .section {
-                padding: 20px 16px 16px 16px;
-                border-radius: 12px;
-            }
-            .section-title {
-                font-size: 1.1em;
-                margin-top: 32px;
-                margin-bottom: 12px;
-            }
-            .contact-buttons {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .contact-btn {
-                justify-content: center;
-                width: 100%;
-            }
-            .faq-item {
-                padding: 12px 0;
-            }
-            .footer {
-                padding: 20px 16px 14px 16px;
-                border-radius: 12px;
-                margin-top: 40px;
-            }
-            .support-banner {
-                padding: 20px 16px;
-                margin-top: 16px;
-            }
-            .support-banner h3 {
-                font-size: 1.1em;
-            }
-            .support-banner p {
-                font-size: 0.9em;
-            }
-            .collapsible-header h2 {
-                font-size: 1.05em;
-            }
-        }
-    </style>
+  /* ─── Noise Overlay ─── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* ─── Nav ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 40px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 48px;
+    background: rgba(15,17,21,0.85);
+    backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid rgba(42,48,64,0.5);
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    object-fit: cover;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent);
+    color: #0F1115 !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+
+  /* ─── Hero ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 140px 24px 80px;
+    position: relative;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,8,42,0.15) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    filter: blur(60px);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(201,8,42,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .hero-badge .dot {
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 92px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -3px;
+    color: var(--text);
+    position: relative;
+    max-width: 520px;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 680px;
+    font-weight: 300;
+    line-height: 1.7;
+    position: relative;
+  }
+  /* new layout: place text and phone side-by-side */
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    width: 100%;
+    max-width: 1100px;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: 560px;
+  }
+  .hero-text .hero-actions { justify-content: flex-start; }
+  @media (max-width: 768px) {
+    .hero-inner { flex-direction: column; gap: 20px; }
+    .hero-text { align-items: center; text-align: center; max-width: 680px; }
+    .hero-text .hero-actions { justify-content: center; }
+  }
+  .hero-phone {
+    margin-top: 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-phone img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .hero-actions {
+    margin-top: 44px;
+    display: flex; gap: 16px; align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* ─── Store Buttons ─── */
+  .btn-store {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 180px;
+  }
+  .btn-store:hover { transform: translateY(-2px); }
+  .btn-apple {
+    background: #fff;
+    color: #000;
+  }
+  .btn-apple:hover { box-shadow: 0 8px 32px rgba(255,255,255,0.15); }
+  .btn-google {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-google:hover { box-shadow: 0 8px 32px rgba(201,8,42,0.15); border-color: var(--accent); }
+  .btn-github {
+    background: #24292e;
+    border: 1px solid #444d56;
+    color: #fff;
+  }
+  .btn-github:hover { box-shadow: 0 8px 32px rgba(255,255,255,0.1); border-color: #6a737d; }
+  .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .store-sub {
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.7;
+    line-height: 1;
+  }
+  .store-name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent);
+    color: #0F1115;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--text-mid);
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: #444; color: var(--text); }
+
+  /* ─── Section Utils ─── */
+  section { padding: 80px 24px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--text);
+    max-width: 560px;
+  }
+  .section-desc {
+    color: var(--text-mid);
+    font-size: 16px;
+    max-width: 480px;
+    margin-top: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ─── Reveal Animation ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── How It Works ─── */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 64px;
+  }
+  .how-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 28px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .how-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .how-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .how-card:hover::before { opacity: 1; }
+  .how-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .how-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  .how-card p { color: var(--text-mid); font-size: 14px; line-height: 1.65; }
+
+  /* ─── Labels Showcase ─── */
+  .labels-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; }
+  .labels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 48px;
+  }
+  .label-chip {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    transition: border-color 0.25s, background 0.25s;
+    cursor: default;
+  }
+  .label-chip:hover { border-color: var(--accent); background: var(--card-hover); }
+  .label-chip .emoji { font-size: 18px; line-height: 1; flex-shrink: 0; }
+  .label-chip .label-info { min-width: 0; }
+  .label-chip .label-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .label-chip .label-cat {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .cat-significance { color: var(--cat-significance); }
+  .cat-competitiveness { color: var(--cat-competitiveness); }
+  .cat-highlights { color: var(--cat-highlights); }
+  .cat-lowlights { color: var(--cat-lowlights); }
+
+  /* ─── Score Demo Strip ─── */
+  .score-strip {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    margin-top: 64px;
+  }
+  .score-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 12px 24px;
+    transition: transform 0.2s;
+  }
+  .score-pill:hover { transform: scale(1.05); }
+  .score-pill .score-emoji { font-size: 20px; }
+  .score-pill .score-val {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .score-pill .score-label { font-size: 11px; color: var(--text-dim); font-weight: 500; }
+  /* Score border colors - gradient from dull to accent red */
+  .sp-1 { border-color: #2B2F36; } .sp-1 .score-val { color: #4B5563; }
+  .sp-3 { border-color: #4A4550; } .sp-3 .score-val { color: #6B6070; }
+  .sp-5 { border-color: #6B5055; } .sp-5 .score-val { color: #8B6A6F; }
+  .sp-7 { border-color: #8C5050; } .sp-7 .score-val { color: #A86060; }
+  .sp-9 { border-color: #B84840; } .sp-9 .score-val { color: #C9082A; }
+  .sp-10 { border-color: var(--accent); background: rgba(201,8,42,0.08); box-shadow: 0 0 24px var(--accent-glow); }
+  .sp-10 .score-val { color: var(--accent); }
+
+  /* ─── FAQ ─── */
+  .faq-list { margin-top: 48px; max-width: 680px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    width: 100%;
+    background: none; border: none;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    padding: 22px 0;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--accent); }
+  .faq-q .faq-icon {
+    font-size: 18px;
+    color: var(--text-dim);
+    transition: transform 0.3s, color 0.3s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(.22,1,.36,1), padding 0.3s;
+    color: var(--text-mid);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 22px; }
+
+  /* ─── Support / Contact ─── */
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .support-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .support-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .support-card .support-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .support-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text); }
+  .support-card p { color: var(--text-mid); font-size: 13px; line-height: 1.6; }
+  .support-card .card-arrow { color: var(--text-dim); font-size: 18px; margin-top: auto; transition: transform 0.2s, color 0.2s; }
+  .support-card:hover .card-arrow { transform: translateX(4px); color: var(--accent); }
+  .si-email { background: rgba(91,163,173,0.15); }
+  .si-gh { background: rgba(155,58,205,0.1); }
+  .si-coffee { background: rgba(201,168,87,0.15); }
+  .si-bug { background: rgba(205,126,100,0.15); }
+
+  /* ─── Coffee CTA Banner ─── */
+  .coffee-banner {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--card) 0%, #1E1D1A 100%);
+    border: 1px solid rgba(201,168,87,0.3);
+    border-radius: 24px;
+    padding: 56px 48px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .coffee-text h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    margin-bottom: 10px;
+  }
+  .coffee-text p { color: var(--text-mid); font-size: 15px; max-width: 420px; font-weight: 300; }
+  .btn-coffee {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent);
+    color: #ffffff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .btn-coffee:hover { transform: translateY(-2px); box-shadow: 0 6px 24px var(--accent-glow); }
+
+  /* ─── Legal Sections ─── */
+  .legal-section { padding: 100px 24px 60px; }
+  .legal-toggle {
+    max-width: 720px; margin: 48px auto 0;
+  }
+  .legal-btn {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px;
+    transition: background 0.2s, border-color 0.2s;
+    margin-bottom: 12px;
+  }
+  .legal-btn:hover { background: var(--card-hover); border-color: var(--accent); }
+  .legal-btn .legal-chevron { transition: transform 0.3s; font-size: 14px; color: var(--text-dim); }
+  .legal-btn.open .legal-chevron { transform: rotate(180deg); color: var(--accent); }
+  .legal-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.22,1,.36,1);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    margin-top: -12px;
+  }
+  .legal-content.open { max-height: 2000px; }
+  .legal-inner {
+    padding: 32px 28px;
+    color: var(--text-mid);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .legal-inner h4 { color: var(--text); font-size: 14px; font-weight: 600; margin: 20px 0 6px; }
+  .legal-inner h4:first-child { margin-top: 0; }
+  .legal-inner ul { padding-left: 18px; margin: 8px 0; }
+  .legal-inner li { margin-bottom: 4px; }
+  .legal-inner a { color: var(--accent); text-decoration: none; }
+  .legal-inner a:hover { text-decoration: underline; }
+
+  /* ─── Footer ─── */
+  footer {
+    padding: 60px 24px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+  .footer-logo span { color: var(--accent); }
+  footer p { color: var(--text-dim); font-size: 12px; }
+  footer .footer-links { margin-top: 12px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  footer .footer-links a { color: var(--text-dim); font-size: 12px; text-decoration: none; transition: color 0.2s; }
+  footer .footer-links a:hover { color: var(--accent); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .how-grid { grid-template-columns: 1fr; }
+    .support-grid { grid-template-columns: 1fr; }
+    .coffee-banner { padding: 36px 28px; text-align: center; justify-content: center; }
+    .coffee-text p { max-width: 100%; }
+    section { padding: 60px 20px; }
+    .labels-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 120px 20px 60px; }
+    .hero h1 { letter-spacing: -1.5px; }
+    .hero-actions { flex-direction: column; width: 100%; }
+    .btn-store { justify-content: center; width: 100%; }
+    .btn-primary, .btn-secondary { justify-content: center; width: 100%; }
+    .footer-links { gap: 16px; }
+  }
+</style>
 </head>
 <body>
-    <div class="header">
-        <img src="icon.png" alt="HeatCheckr icon" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10);" />
-        <h1>HeatCheckr</h1>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="../02_frontend/assets/images/icon.png" alt="HeatCheckr" class="nav-icon" />
+    HeatCheckr</span>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#labels">Labels</a>
+    <a href="#faq">FAQ</a>
+    <a href="#support">Support</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1 class="reveal">Never waste time on <span class="accent">boring NBA games.</span></h1>
+      <p class="hero-sub reveal">HeatCheckr analyzes every NBA game and tells you exactly what happened — without spoiling the score. Skip the blowouts. Find the instant classics.</p>
+      <div class="hero-actions reveal">
+        <a href="https://apps.apple.com/app/heatcheckr/id6757223698" class="btn-store btn-apple">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">Download on the</span>
+        <span class="store-name">App Store</span>
+      </div>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheckr" class="btn-store btn-google">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">Get it on</span>
+        <span class="store-name">Google Play</span>
+      </div>
+    </a>
+    <a href="https://github.com/JoKuebler/HeatCheckr-App" class="btn-store btn-github">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">View on</span>
+        <span class="store-name">GitHub</span>
+      </div>
+    </a>
+      </div>
     </div>
-    
-    <div class="container">
-        <!-- Support the Project Banner -->
-        <div class="support-banner">
-            <h3>☕ Support HeatCheckr</h3>
-            <p>I'm a solo developer building this app in my free time. If you enjoy HeatCheckr and want to help cover server costs and keep the app running, consider buying me a coffee, or in my case more like a Gatorade. Every contribution helps!</p>
-            <a href="https://buymeacoffee.com/jdkdevelopment" target="_blank" class="coffee-btn">☕ Support the project</a>
-        </div>
-
-        <div id="support">
-            <h2 class="section-title">Contact & Support</h2>
-            <div class="contact-item">
-                <p style="margin-top: 8px; font-size: 0.95em; color: #666;">If you have questions, need help, want to report a bug, or suggest a feature, just email me or open a ticket on Github. I happily read and reply to every message!</p>
-                <div class="contact-buttons">
-                    <a href="mailto:heatcheckrapp@gmail.com" class="contact-btn email-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <span>Email Support</span>
-                    </a>
-                    <a href="https://github.com/JoKuebler/HeatCheckr-App" target="_blank" class="contact-btn github-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question">How are excitement scores calculated?</div>
-                <div class="faq-answer">
-                    I analyze every game using 20+ factors including final margin, lead changes, clutch plays, overtime, game flow, pace, and scoring patterns. Each factor is weighted based on its impact on game excitement, then combined into a 0-10 score. Higher scores mean more exciting games!
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">When is data updated?</div>
-                <div class="faq-answer">
-                    Data is updated every morning around 6 AM CET with analysis of yesterday's games. Scheduled games for today are also shown so you can see what's coming up.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Can I see games from previous days?</div>
-                <div class="faq-answer">
-                    Yes! You can swipe left to browse historical games from past days. This is great for catching up on games you might have missed throughout the week.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">What do the labels mean?</div>
-                <div class="faq-answer">
-                    <strong>⭐ Instant Classic:</strong> Rare label for elite games with dramatic finishes or overtime.<br>
-                    <strong>🏆 Elite Matchup:</strong> Both teams are among the best in their conference.<br>
-                    <strong>⚔️ Heavyweight Bout:</strong> Both teams are strong playoff contenders.<br>
-                    <strong>🏁 Playoff Race:</strong> Both teams are in playoff position but not elite-level.<br>
-                    <strong>🎰 Tank Bowl:</strong> Both teams are near the bottom of the standings.<br>
-                    <strong>🔄 Back & Forth Battle:</strong> Many lead changes and a close score.<br>
-                    <strong>⚖️ Down to the Wire:</strong> Game decided in the final moments.<br>
-                    <strong>📸 Photo Finish:</strong> Decided by very few points.<br>
-                    <strong>⚡️ Q4 Comeback:</strong> Big comeback in the fourth quarter.<br>
-                    <strong>🔥 Hot Start:</strong> Exceptionally high-scoring and competitive first quarter.<br>
-                    <strong>🎯 Game Winner:</strong> Decided by a made shot in the final seconds.<br>
-                    <strong>🛡️ Clutch Stop:</strong> Defensive play (block or steal) in the final seconds to seal the win.<br>
-                    <strong>🎯 3-Point Shootout:</strong> Both teams combine for a high number of made threes.<br>
-                    <strong>🏃 High Octane:</strong> Extremely high-scoring, fast-paced game.<br>
-                    <strong>🧹 Glass Cleaners:</strong> Both teams combine for a dominant rebounding performance.<br>
-                    <strong>🎼 Assist Symphony:</strong> Both teams combine for excellent ball movement and assists.<br>
-                    <strong>👑 Triple Double Alert:</strong> Any player records a triple-double.<br>
-                    <strong>💥 Scoring Explosion:</strong> Any player scores an exceptional number of points.<br>
-                    <strong>🎯 Sniper Game:</strong> Any player makes a high number of three-pointers.<br>
-                    <strong>🖐️ Pickpocket Alert:</strong> Any player records many steals.<br>
-                    <strong>🚫 Block Party:</strong> Any player records many blocks.<br>
-                    <strong>🔒 Defensive Slugfest:</strong> Low-scoring, defense-dominated game.<br>
-                    <strong>🎪 Chaos Ball:</strong> Game features a high number of turnovers.<br>
-                    <strong>🧱 Brick Fest:</strong> Both teams shoot poorly and score few points.<br>
-                    <strong>🎯 Free Throw Parade:</strong> Game with many fouls and free throws.<br>
-                    <strong>⏳ Double OT Marathon:</strong> Game goes to double overtime.<br>
-                    <strong>🕰️ Triple OT Epic:</strong> Game goes to triple overtime.<br>
-                    <strong>💔 OT Heartbreaker:</strong> Overtime game decided by a single basket.<br>
-                    <strong>🌊 Free Flowing:</strong> Few fouls and free throws, smooth and uninterrupted play.<br>
-                    <strong>😴 Blowout Alert:</strong> Game is a blowout with a large margin.<br>
-                    <strong>😎 Easy Win:</strong> Comfortable win, but not a full blowout.<br>
-                    <strong>🍔 Nothing Burger:</strong> No special indicators.<br>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Can I filter which labels I see?</div>
-                <div class="faq-answer">
-                    Yes! Tap the settings icon (three lines) in the top right corner to toggle different label categories on or off. This lets you customize what information you see for each game.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Is this app affiliated with the NBA?</div>
-                <div class="faq-answer">
-                    No, HeatCheckr is an independent app created by a fan. I use publicly available data from NBA.com and link to official NBA highlight videos. I'm not endorsed by or affiliated with the NBA.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Why is the app free?</div>
-                <div class="faq-answer">
-                    I built this as a passion project to solve my own problem as a European NBA fan. There's an optional "Buy me a Coffee" support option to help cover server costs, but the core app is and will remain free.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Do you plan to add more features?</div>
-                <div class="faq-answer">
-                    Absolutely! I have many ideas for future updates including more detailed game breakdowns, playoff tracking, and personalization options. If you have feature requests, feel free to email me!
-                </div>
-            </div>
-        </div>
-
-        <!-- Collapsible Privacy Policy -->
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection(this)">
-                <h2>📜 Privacy Policy</h2>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="collapsible-content">
-                <div class="collapsible-content-inner">
-                    <p class="updated">Last updated: December 29, 2025</p>
-                    <h3>What Data We Collect</h3>
-                    <p>HeatCheckr is designed to be privacy-friendly. Here's what we do and don't collect:</p>
-                    <ul>
-                        <li><strong>No personal information:</strong> We don't ask for your name, email, or any identifying information.</li>
-                        <li><strong>No account required:</strong> You can use HeatCheckr without creating an account.</li>
-                        <li><strong>No analytics tracking:</strong> We don't use third-party analytics services to track your behavior.</li>
-                        <li><strong>No advertising:</strong> We don't display ads or share data with advertisers.</li>
-                    </ul>
-                    <h3>Local Storage</h3>
-                    <p>HeatCheckr stores the following data locally on your device:</p>
-                    <ul>
-                        <li><strong>Cached game data:</strong> Recent game information is cached to improve app performance and allow offline viewing.</li>
-                        <li><strong>Your preferences:</strong> Settings like which label categories you've toggled are stored locally on your device.</li>
-                        <li><strong>Warning acknowledgments:</strong> We remember if you've seen certain one-time warnings (like the highlight spoiler warning).</li>
-                    </ul>
-                    <p>This data never leaves your device and is not transmitted to our servers.</p>
-                    <h3>Network Requests</h3>
-                    <p>The app makes network requests to:</p>
-                    <ul>
-                        <li><strong>Our API server:</strong> To fetch NBA game data and excitement scores. These requests don't include any personal information.</li>
-                        <li><strong>NBA.com:</strong> When you tap to view highlights, you're taken to the official NBA website. We don't control their privacy practices.</li>
-                    </ul>
-                    <h3>Third-Party Services</h3>
-                    <p>HeatCheckr uses the following third-party services:</p>
-                    <ul>
-                        <li><strong>NBA API:</strong> We fetch publicly available game statistics from the NBA. No user data is shared.</li>
-                        <li><strong>Railway:</strong> Our backend is hosted on Railway. Server logs may contain standard HTTP request information (IP addresses, request timestamps) but we don't actively collect or analyze this data.</li>
-                    </ul>
-                    <h3>Children's Privacy</h3>
-                    <p>HeatCheckr does not knowingly collect any personal information from children under 13. The app is suitable for all ages as it simply displays sports statistics.</p>
-                    <h3>Changes to This Policy</h3>
-                    <p>We may update this Privacy Policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this page.</p>
-                    <h3>Contact Us</h3>
-                    <p>If you have any questions about this Privacy Policy, you can contact us at:</p>
-                    <p><a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Collapsible Terms of Service -->
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection(this)">
-                <h2>📋 Terms of Service</h2>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="collapsible-content">
-                <div class="collapsible-content-inner">
-                    <p class="updated">Last updated: December 29, 2025</p>
-                    <h3>1. Acceptance of Terms</h3>
-                    <p>By downloading, installing, or using HeatCheckr ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
-                    <h3>2. Description of Service</h3>
-                    <p>HeatCheckr is a free mobile application that provides spoiler-free NBA game excitement indicators. The App helps users decide which recorded games to watch without revealing final scores or outcomes.</p>
-                    <ul>
-                        <li>Excitement scores for NBA games</li>
-                        <li>Descriptive labels about game flow and statistics</li>
-                        <li>Links to official NBA game highlights</li>
-                    </ul>
-                    <h3>3. Free Service</h3>
-                    <p>HeatCheckr is provided free of charge. We do not currently offer premium features or subscriptions. We may accept voluntary tips/donations through third-party services, but these are entirely optional and provide no additional features.</p>
-                    <h3>4. NBA Content Disclaimer</h3>
-                    <p>HeatCheckr is not affiliated with, endorsed by, or connected to the National Basketball Association (NBA) or any of its teams. All NBA-related content, including team names, abbreviations, and statistics, are the property of the NBA and its licensors.</p>
-                    <p>We use publicly available NBA statistics through official APIs for informational purposes only. Team logos and other NBA intellectual property are used under fair use for identification purposes.</p>
-                    <h3>5. User Conduct</h3>
-                    <p>You agree not to:</p>
-                    <ul>
-                        <li>Reverse engineer, decompile, or disassemble any part of the App</li>
-                        <li>Attempt to gain unauthorized access to our servers or systems</li>
-                        <li>Use the App for any unlawful purpose</li>
-                        <li>Redistribute or resell the App or its content</li>
-                        <li>Scrape or automatically collect data from our API</li>
-                    </ul>
-                    <h3>6. Intellectual Property</h3>
-                    <p>The HeatCheckr app, including its design, code, and original content (excluding NBA data), is owned by JDK Development. You may not copy, modify, or distribute any part of the App without our written permission.</p>
-                    <h3>7. Disclaimer of Warranties</h3>
-                    <p>HeatCheckr is provided "as is" without warranties of any kind. We do not guarantee:</p>
-                    <ul>
-                        <li>The accuracy or completeness of game data</li>
-                        <li>Uninterrupted or error-free operation</li>
-                        <li>That the App will meet your specific requirements</li>
-                        <li>The availability of historical game data</li>
-                    </ul>
-                    <h3>8. Limitation of Liability</h3>
-                    <p>To the maximum extent permitted by law, JDK Development shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App, including but not limited to:</p>
-                    <ul>
-                        <li>Exposure to game spoilers through linked content</li>
-                        <li>Inaccurate excitement scores or labels</li>
-                        <li>Service interruptions or data loss</li>
-                    </ul>
-                    <h3>9. External Links</h3>
-                    <p>The App contains links to third-party websites (such as NBA.com for highlights). We are not responsible for the content or privacy practices of these external sites. Visiting these links is at your own discretion.</p>
-                    <h3>10. Modifications to Service</h3>
-                    <p>We reserve the right to modify, suspend, or discontinue HeatCheckr at any time without notice. We may also update these Terms of Service from time to time. Continued use of the App after changes constitutes acceptance of the new terms.</p>
-                    <h3>11. Termination</h3>
-                    <p>We may terminate or suspend your access to the App at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users or our services.</p>
-                    <h3>12. Governing Law</h3>
-                    <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
-                    <h3>13. Contact Information</h3>
-                    <p>For questions about these Terms of Service, please contact me at:</p>
-                    <p><a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Not affiliated with the NBA</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">© 2025 HeatCheckr. All rights reserved.</p>
-        </div>
+    <div class="hero-phone reveal">
+      <img src="./images/homescreen.png" alt="HeatCheckr App Screenshot" />
     </div>
+  </div>
+</section>
 
-    <script>
-        function toggleSection(header) {
-            header.classList.toggle('open');
-            const content = header.nextElementSibling;
-            content.classList.toggle('open');
-        }
-    </script>
+<!-- How It Works -->
+<section id="how">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">Built on real play-by-play data.</h2>
+      <p class="section-desc">Every game is analyzed using 20+ factors from official NBA data. No guessing — just smart scores and clear labels.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">01</div>
+        <h3>Games are analyzed</h3>
+        <p>Every morning, overnight NBA play-by-play data is processed through a custom scoring engine that weighs 20+ factors like lead changes, clutch plays, and game flow.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">02</div>
+        <h3>You get a score</h3>
+        <p>Each game receives an excitement score from 1–10. A 9 is a thriller. A 2 is a snoozer. No ambiguity — just a number that tells you what you need to know.</p>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-num">03</div>
+        <h3>Labels explain why</h3>
+        <p>Smart labels tell you exactly what made a game exciting (or boring). "Photo Finish" and "Chaos Ball" hit different — and now you know before you press play.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Labels -->
+<section id="labels" style="padding-top:40px;">
+  <div class="section-inner">
+    <div class="labels-header reveal">
+      <div>
+        <p class="section-label">Game Labels</p>
+        <h2 class="section-title">Not all exciting games are the same.</h2>
+        <p class="section-desc">Labels break down exactly why a game was worth your time — organized into four categories.</p>
+      </div>
+    </div>
+    <div class="labels-grid">
+      <!-- Significance -->
+      <div class="label-chip reveal"><span class="emoji">⭐</span><div class="label-info"><div class="label-name">Instant Classic</div><div class="label-cat cat-significance">Significance</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🏆</span><div class="label-info"><div class="label-name">Elite Matchup</div><div class="label-cat cat-significance">Significance</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">⚔️</span><div class="label-info"><div class="label-name">Heavyweight Bout</div><div class="label-cat cat-significance">Significance</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🏁</span><div class="label-info"><div class="label-name">Playoff Race</div><div class="label-cat cat-significance">Significance</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎰</span><div class="label-info"><div class="label-name">Tank Bowl</div><div class="label-cat cat-significance">Significance</div></div></div>
+      <!-- Competitiveness -->
+      <div class="label-chip reveal"><span class="emoji">🔄</span><div class="label-info"><div class="label-name">Back & Forth Battle</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">⚖️</span><div class="label-info"><div class="label-name">Down to the Wire</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">📸</span><div class="label-info"><div class="label-name">Photo Finish</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">⚡</span><div class="label-info"><div class="label-name">Q4 Comeback</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🔥</span><div class="label-info"><div class="label-name">Hot Start</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Game Winner</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🛡️</span><div class="label-info"><div class="label-name">Clutch Stop</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">⏳</span><div class="label-info"><div class="label-name">Double OT Marathon</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🕰️</span><div class="label-info"><div class="label-name">Triple OT Epic</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">💔</span><div class="label-info"><div class="label-name">OT Heartbreaker</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <!-- Highlights -->
+      <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">3-Point Shootout</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🏃</span><div class="label-info"><div class="label-name">High Octane</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🧹</span><div class="label-info"><div class="label-name">Glass Cleaners</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎼</span><div class="label-info"><div class="label-name">Assist Symphony</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">👑</span><div class="label-info"><div class="label-name">Triple Double Alert</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">💥</span><div class="label-info"><div class="label-name">Scoring Explosion</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Sniper Game</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🖐️</span><div class="label-info"><div class="label-name">Pickpocket Alert</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🚫</span><div class="label-info"><div class="label-name">Block Party</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🌊</span><div class="label-info"><div class="label-name">Free Flowing</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <!-- Lowlights -->
+      <div class="label-chip reveal"><span class="emoji">🔒</span><div class="label-info"><div class="label-name">Defensive Slugfest</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎪</span><div class="label-info"><div class="label-name">Chaos Ball</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🧱</span><div class="label-info"><div class="label-name">Brick Fest</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Free Throw Parade</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">😴</span><div class="label-info"><div class="label-name">Blowout Alert</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">😎</span><div class="label-info"><div class="label-name">Easy Win</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🍔</span><div class="label-info"><div class="label-name">Nothing Burger</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">Got questions?</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How are excitement scores calculated? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Every game is analyzed using 20+ factors including final margin, lead changes, clutch plays, overtime, game flow, pace, and scoring patterns. Each factor is weighted based on its impact on game excitement, then combined into a 0–10 score. Higher scores mean more exciting games.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">When is data updated? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Data is updated every morning around 6 AM CET with analysis of yesterday's games. Scheduled games for today are also shown so you can plan ahead.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I see games from previous days? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes! Swipe left or use the navigation arrows to browse historical games from past days. Great for catching up on games you missed throughout the week.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I filter which labels I see? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Absolutely. Tap the settings icon (three lines) in the top right corner to toggle label categories on or off. Customize exactly what information you see for each game.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is this app affiliated with the NBA? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No. HeatCheckr is an independent app created by a fan. We use publicly available data from NBA.com and link to official NBA highlight videos. Not endorsed by or affiliated with the NBA in any way.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Why is it free? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Built as a passion project to solve a real problem — especially for European NBA fans who can't watch games live. There's an optional "Buy me a Coffee" support option to help cover server costs, but the core app is and will remain free. No signup, no subscriptions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Support -->
+<section id="support">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Support</p>
+      <h2 class="section-title">Need help or have an idea?</h2>
+      <p class="section-desc">Every message gets a personal reply. Bug reports, feature ideas, or just a hi — all welcome.</p>
+    </div>
+    <div class="support-grid">
+      <a href="mailto:heatcheckrapp@gmail.com" class="support-card reveal">
+        <div class="support-icon si-email">✉️</div>
+        <h3>Email Support</h3>
+        <p>Questions, bugs, or feature requests — drop us an email. We read and reply to every single one.</p>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="https://github.com/JoKuebler/HeatCheckr-App" class="support-card reveal">
+        <div class="support-icon si-gh">🐙</div>
+        <h3>GitHub</h3>
+        <p>Open an issue, browse the code, or contribute. The project is open and transparent.</p>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="mailto:heatcheckrapp@gmail.com?subject=Bug%20Report" class="support-card reveal">
+        <div class="support-icon si-bug">🐛</div>
+        <h3>Report a Bug</h3>
+        <p>Something not working right? Let us know and we'll get it fixed as fast as we can.</p>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="mailto:heatcheckrapp@gmail.com?subject=Feature%20Request" class="support-card reveal">
+        <div class="support-icon si-coffee">💡</div>
+        <h3>Feature Request</h3>
+        <p>Have an idea that would make HeatCheckr better? We'd love to hear it.</p>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Coffee CTA -->
+<section style="padding-top:0;">
+  <div class="section-inner">
+    <div class="coffee-banner reveal">
+      <div class="coffee-text">
+        <h2>☕ Keep HeatCheckr running</h2>
+        <p>Solo dev, built in free time. If you enjoy the app, a small contribution helps cover server costs and keeps the lights on. No pressure — just gratitude.</p>
+      </div>
+      <a href="https://buymeacoffee.com/jdkdevelopment" class="btn-coffee">Buy Me a Coffee ☕</a>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy & Terms -->
+<section class="legal-section">
+  <div class="section-inner" style="max-width:720px;">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Legal</p>
+      <h2 class="section-title" style="max-width:100%; text-align:center;">Privacy & Terms</h2>
+    </div>
+    <div class="legal-toggle reveal">
+      <!-- Privacy -->
+      <button class="legal-btn" onclick="toggleLegal(this, 'privacy')">📜 Privacy Policy <span class="legal-chevron">▼</span></button>
+      <div class="legal-content" id="privacy">
+        <div class="legal-inner">
+          <p><em>Last updated: December 29, 2025</em></p>
+          <h4>What Data We Collect</h4>
+          <p>HeatCheckr is designed to be privacy-friendly:</p>
+          <ul>
+            <li><strong>No personal information:</strong> We don't ask for your name, email, or any identifying information.</li>
+            <li><strong>No account required:</strong> Use HeatCheckr without creating an account.</li>
+            <li><strong>No analytics tracking:</strong> No third-party analytics services track your behavior.</li>
+            <li><strong>No advertising:</strong> We don't display ads or share data with advertisers.</li>
+          </ul>
+          <h4>Local Storage</h4>
+          <p>The following is stored locally on your device only:</p>
+          <ul>
+            <li><strong>Cached game data</strong> for performance and offline viewing.</li>
+            <li><strong>Your preferences</strong> (toggled label categories, etc.).</li>
+            <li><strong>Warning acknowledgments</strong> (e.g., highlight spoiler warning).</li>
+          </ul>
+          <p>This data never leaves your device.</p>
+          <h4>Network Requests</h4>
+          <ul>
+            <li><strong>Our API server:</strong> Fetches game data and excitement scores. No personal information included.</li>
+            <li><strong>NBA.com:</strong> When you tap highlights, you're taken to the official NBA site. We don't control their privacy practices.</li>
+          </ul>
+          <h4>Third-Party Services</h4>
+          <ul>
+            <li><strong>NBA API:</strong> Publicly available game stats. No user data shared.</li>
+            <li><strong>Railway:</strong> Hosts our backend. Server logs may contain standard HTTP info (IP, timestamps) but we don't actively collect or analyze this.</li>
+          </ul>
+          <h4>Children's Privacy</h4>
+          <p>We do not knowingly collect personal information from children under 13. The app is suitable for all ages — it simply displays sports statistics.</p>
+          <h4>Contact</h4>
+          <p>Questions? Reach out at <a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <button class="legal-btn" onclick="toggleLegal(this, 'terms')">📋 Terms of Service <span class="legal-chevron">▼</span></button>
+      <div class="legal-content" id="terms">
+        <div class="legal-inner">
+          <p><em>Last updated: December 29, 2025</em></p>
+          <h4>1. Acceptance</h4>
+          <p>By downloading or using HeatCheckr, you agree to these Terms. If you don't agree, please don't use the app.</p>
+          <h4>2. Description</h4>
+          <p>HeatCheckr is a free mobile app providing spoiler-free NBA game excitement indicators — scores, labels, and links to official highlights.</p>
+          <h4>3. Free Service</h4>
+          <p>HeatCheckr is free of charge. No premium features or subscriptions. Optional voluntary tips via third-party services provide no additional features.</p>
+          <h4>4. NBA Disclaimer</h4>
+          <p>Not affiliated with, endorsed by, or connected to the NBA or any of its teams. All NBA-related content is the property of the NBA and its licensors. We use publicly available stats for informational purposes only.</p>
+          <h4>5. User Conduct</h4>
+          <p>You agree not to reverse engineer, gain unauthorized access, use for unlawful purposes, redistribute, or scrape data from our API.</p>
+          <h4>6. Intellectual Property</h4>
+          <p>The HeatCheckr app, design, code, and original content (excluding NBA data) is owned by JDK Development.</p>
+          <h4>7. Disclaimer of Warranties</h4>
+          <p>Provided "as is" without warranties. We don't guarantee accuracy, uninterrupted operation, or that the app meets your specific requirements.</p>
+          <h4>8. Limitation of Liability</h4>
+          <p>JDK Development is not liable for indirect, incidental, special, or consequential damages from your use of the app.</p>
+          <h4>9. External Links</h4>
+          <p>Links to third-party sites (NBA.com, etc.) are at your own discretion. We're not responsible for their content or privacy practices.</p>
+          <h4>10. Contact</h4>
+          <p>Questions? <a href="mailto:heatcheckrapp@gmail.com">heatcheckrapp@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="../02_frontend/assets/images/icon.png" alt="HeatCheckr" class="footer-icon" />
+    HeatCheckr</span>
+  </div>
+  <p>Not affiliated with the NBA · © 2025 JDK Development · All rights reserved</p>
+  <div class="footer-links">
+    <a href="https://apps.apple.com/app/heatcheckr/id6757223698">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheckr">Google Play</a>
+    <a href="https://github.com/JoKuebler/HeatCheckr-App">GitHub</a>
+    <a href="mailto:heatcheckrapp@gmail.com">Contact</a>
+    <a href="https://buymeacoffee.com/jdkdevelopment">Support</a>
+  </div>
+</footer>
+
+<script>
+// ─── Scroll Reveal ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger siblings
+      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+      let delay = 0;
+      siblings.forEach((s, idx) => {
+        if (s === entry.target) delay = idx * 60;
+      });
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── FAQ Toggle ───
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  // Open clicked (if wasn't already open)
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ─── Legal Toggle ───
+function toggleLegal(btn, id) {
+  const content = document.getElementById(id);
+  const isOpen = content.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  content.classList.toggle('open', !isOpen);
+}
+</script>
 </body>
 </html>
