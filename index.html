@@ -1002,7 +1002,8 @@ const observer = new IntersectionObserver((entries) => {
       siblings.forEach((s, idx) => {
         if (s === entry.target) delay = idx * 60;
       });
-      setTimeout(() => entry.target.classList.add('visible'), delay);
+      const inLabelsGrid = !!entry.target.closest('.labels-grid');
+      setTimeout(() => entry.target.classList.add('visible'), inLabelsGrid ? 0 : delay);
       observer.unobserve(entry.target);
     }
   });
