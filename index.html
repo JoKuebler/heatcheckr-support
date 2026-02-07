@@ -400,6 +400,56 @@
   }
   .how-card p { color: var(--text-mid); font-size: 14px; line-height: 1.65; }
 
+  /* ─── Features ─── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 64px;
+  }
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 16px;
+    display: block;
+    color: var(--accent);
+  }
+  .feature-icon svg { width: 100%; height: 100%; display: block; }
+  .feature-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .feature-card p { color: var(--text-mid); font-size: 14px; line-height: 1.65; }
+  .feature-card.coming-soon {
+    opacity: 0.55;
+    border-style: dashed;
+  }
+  .feature-card.coming-soon:hover { border-color: var(--border); transform: none; cursor: default; }
+  .feature-badge {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
   /* ─── Labels Showcase ─── */
   .labels-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; }
   .labels-grid {
@@ -653,6 +703,7 @@
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
     .how-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
     .support-grid { grid-template-columns: 1fr; }
     .coffee-banner { padding: 36px 28px; text-align: center; justify-content: center; }
     .coffee-text p { max-width: 100%; }
@@ -694,6 +745,7 @@
   </a>
   <div class="nav-links">
     <a href="#how">How it works</a>
+    <a href="#features">Features</a>
     <a href="#labels">Labels</a>
     <a href="#faq">FAQ</a>
     <a href="#support">Support</a>
@@ -729,6 +781,48 @@
     </div>
     <div class="hero-phone reveal">
       <img src="./images/homescreen.png" alt="HeatCheckr app showing spoiler-free NBA game excitement scores" />
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">More than just scores.</h2>
+      <p class="section-desc">HeatCheckr keeps evolving. Here's what's already built in — and what's coming next.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Favorite Team Alerts</h3>
+        <p>Pick your team and get a push notification once a day when they played an exciting game. Never miss a great performance from your squad.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Smart Push Notifications</h3>
+        <p>Choose to be alerted if there was an exciting game. One daily alert recaping the game schedule, no notification spam.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>One-Tap Highlights</h3>
+        <p>Every game card has a highlight button that takes you straight to the spoiler free recaps. Choose between YouTube or NBA.com as your preferred source of highlights.</p>
+      </div>
+      <div class="feature-card coming-soon reveal">
+        <span class="feature-badge">COMING SOON</span>
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Heat Report</h3>
+        <p>Season stats, team rankings, excitement trends, and more — all in one panel. We're building it now.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -780,7 +874,7 @@
       <div class="label-chip reveal"><span class="emoji">🎰</span><div class="label-info"><div class="label-name">Tank Bowl</div><div class="label-cat cat-significance">Significance</div></div></div>
       <!-- Competitiveness -->
       <div class="label-chip reveal"><span class="emoji">🔄</span><div class="label-info"><div class="label-name">Back & Forth Battle</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
-      <div class="label-chip reveal"><span class="emoji">⚖️</span><div class="label-info"><div class="label-name">Down to the Wire</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">📏</span><div class="label-info"><div class="label-name">Nail Biter Ending</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <div class="label-chip reveal"><span class="emoji">📸</span><div class="label-info"><div class="label-name">Photo Finish</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <div class="label-chip reveal"><span class="emoji">⚡</span><div class="label-info"><div class="label-name">Q4 Comeback</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🔥</span><div class="label-info"><div class="label-name">Hot Start</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
@@ -839,7 +933,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">When is data updated? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Data is updated every morning around 6 AM CET with analysis of yesterday's games. Scheduled games for today are also shown so you can plan ahead.</div>
+        <div class="faq-a">Data is updated multiple times throughout the day with analysis of yesterday's games. Scheduled games for today are also shown so you can plan ahead.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Can I see games from previous days? <span class="faq-icon">+</span></button>
@@ -850,12 +944,20 @@
         <div class="faq-a">Absolutely. Tap the settings icon (three lines) in the top right corner to toggle label categories on or off. Customize exactly what information you see for each game.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is this app affiliated with the NBA? <span class="faq-icon">+</span></button>
-        <div class="faq-a">No. HeatCheckr is an independent app created by a fan. We use publicly available data from NBA.com and link to official NBA highlight videos. Not endorsed by or affiliated with the NBA in any way.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">How do favorite team notifications work? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Go to Settings → Favorite Team and pick your team. When they play a game that scores above the excitement threshold, you'll get a personalized push notification the next morning. You can turn this on or off at any time.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Why is it free? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Built as a passion project to solve a real problem — especially for European NBA fans who can't watch games live. There's an optional "Buy me a Coffee" support option to help cover server costs, but the core app is and will remain free. No signup, no subscriptions.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Can I choose where highlights open? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes! By default, the highlight button opens YouTube recaps. If you prefer, toggle "Use NBA.com Highlights" in Settings to switch to the official NBA highlight player instead.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the Heat Report? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Heat Report is an upcoming feature that will show season-long stats, excitement trends, hottest teams, and more. Tap the chart icon on the top left to see a preview of what's coming.</div>
+      </div>
+            <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is this app affiliated with the NBA? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No. HeatCheckr is an independent app created by a fan. We use publicly available data from NBA.com and link to official NBA highlight videos. Not endorsed by or affiliated with the NBA in any way.</div>
       </div>
     </div>
   </div>
