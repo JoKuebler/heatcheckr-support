@@ -96,7 +96,7 @@
   /* ─── Nav ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 18px 40px;
+    padding: 18px 20px;
     display: flex; align-items: center; justify-content: center;
     gap: 48px;
     background: rgba(15,17,21,0.85);
@@ -148,7 +148,7 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    padding: 140px 24px 80px;
+    padding: 100px 12px 80px;
     position: relative;
   }
   .hero-glow {
@@ -186,7 +186,7 @@
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(52px, 8vw, 92px);
+    font-size: clamp(44px, 7vw, 72px);
     font-weight: 800;
     line-height: 1.02;
     letter-spacing: -3px;
@@ -197,9 +197,9 @@
   .hero h1 .accent { color: var(--accent); }
   .hero-sub {
     margin-top: 28px;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--text-mid);
-    max-width: 680px;
+    max-width: 760px;
     font-weight: 300;
     line-height: 1.7;
     position: relative;
@@ -211,7 +211,7 @@
     justify-content: center;
     gap: 48px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1300px;
   }
   .hero-text {
     display: flex;
@@ -219,7 +219,7 @@
     align-items: flex-start;
     text-align: left;
     width: 100%;
-    max-width: 720px;
+    max-width: 760px;
   }
   .hero-text .hero-actions { justify-content: flex-start; }
   @media (max-width: 768px) {
@@ -231,13 +231,31 @@
     margin-top: 48px;
     position: relative;
     z-index: 1;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
   }
   .hero-phone img {
-    max-width: 320px;
+    max-width: 640px;
     width: 100%;
     height: auto;
-    border-radius: 24px;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    border-radius: 20px;
+    box-shadow: 0 28px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    object-fit: cover;
+    transition: transform 0.25s ease;
+  }
+  .hero-phone img:hover { transform: translateY(-6px) scale(1.02); }
+  @media (max-width: 1100px) {
+    .hero-phone img { max-width: 540px; }
+  }
+  @media (max-width: 900px) {
+    .hero-phone { gap: 12px; }
+    .hero-phone img { max-width: 460px; border-radius: 18px; }
+  }
+  @media (max-width: 520px) {
+    .hero-phone { flex-direction: column; gap: 14px; }
+    .hero-phone img { max-width: 520px; width: 96%; }
   }
   .hero-actions {
     margin-top: 44px;
@@ -799,7 +817,8 @@
       </div>
     </div>
     <div class="hero-phone reveal">
-      <img src="./images/homescreen.png" alt="HeatCheckr app showing spoiler-free NBA game excitement scores" />
+      <img src="./images/Image02.png" alt="HeatCheckr app screenshot 2 - game detail and highlights" />
+      <img src="./images/Image01.png" alt="HeatCheckr app screenshot 1 - game list and excitement scores" />
     </div>
   </div>
 </section>
@@ -834,13 +853,12 @@
         <h3>One-Tap Highlights</h3>
         <p>Every game card has a highlight button that takes you straight to the spoiler free recaps. Choose between YouTube or NBA.com as your preferred source of highlights.</p>
       </div>
-      <div class="feature-card coming-soon reveal">
-        <span class="feature-badge">COMING SOON</span>
+      <div class="feature-card reveal">
         <span class="feature-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
         <h3>Heat Report</h3>
-        <p>Season stats, team rankings, excitement trends, and more — all in one panel. We're building it now.</p>
+        <p>Catch up on the action you missed! Browse this week's or last week's most exciting games in one place. Perfect for finding the best matchups to watch over the weekend.</p>
       </div>
     </div>
   </div>
