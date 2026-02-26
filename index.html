@@ -1163,6 +1163,31 @@ function toggleLegal(btn, id) {
   btn.classList.toggle('open', !isOpen);
   content.classList.toggle('open', !isOpen);
 }
+
+// Auto-open legal sections when visiting /privacy, /terms, or using #privacy/#terms
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const path = (window.location.pathname || '').replace(/\/+$/, '').toLowerCase();
+    const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+    let target = hash || null;
+    if (!target) {
+      if (path === '/privacy') target = 'privacy';
+      else if (path === '/terms' || path === '/termsofservice' || path === '/tos') target = 'terms';
+    }
+    if (target) {
+      const content = document.getElementById(target);
+      if (content) {
+        // find the matching button that toggles this section
+        const btn = document.querySelector(`.legal-btn[onclick*="${target}"]`);
+        if (btn && !content.classList.contains('open')) toggleLegal(btn, target);
+        // ensure it's visible
+        setTimeout(() => { content.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+});
 </script>
 </body>
 </html>
