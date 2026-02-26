@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting…</title>
+  <script>
+    // GitHub Pages serves this 404.html for any unknown path.
+    // Convert the path into a hash fragment and redirect to the main page
+    // so that /privacy  →  /#privacy  and  /terms  →  /#terms
+    var path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
+    var segment = path.split('/').pop() || '';
+    var hash = segment ? '#' + segment : '';
+    window.location.replace(window.location.origin + '/' + hash);
+  </script>
+</head>
+<body></body>
+</html>

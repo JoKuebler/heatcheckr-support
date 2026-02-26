@@ -1167,20 +1167,29 @@ function toggleLegal(btn, id) {
 // Auto-open legal sections when visiting /privacy, /terms, or using #privacy/#terms
 document.addEventListener('DOMContentLoaded', () => {
   try {
-    const path = (window.location.pathname || '').replace(/\/+$/, '').toLowerCase();
+    const path = (window.location.pathname || '').toLowerCase();
     const hash = (window.location.hash || '').replace('#', '').toLowerCase();
     let target = hash || null;
+
+    // If the pathname contains privacy/terms (handles /privacy, /support/privacy, www vs non-www), map to target
     if (!target) {
-      if (path === '/privacy') target = 'privacy';
-      else if (path === '/terms' || path === '/termsofservice' || path === '/tos') target = 'terms';
+      if (path.includes('/privacy')) target = 'privacy';
+      else if (path.includes('/terms') || path.includes('/termsofservice') || path.includes('/tos')) target = 'terms';
     }
+
     if (target) {
+      // If we're not already at a hash URL, normalize the URL to root + hash so server routing won't 404
+      const desiredHash = `#${target}`;
+      if (!window.location.hash || window.location.hash.toLowerCase() !== desiredHash) {
+        // Use replace so we don't create an extra history entry
+        try { window.location.replace((window.location.origin || '') + '/' + desiredHash); } catch (e) {}
+        return;
+      }
+
       const content = document.getElementById(target);
       if (content) {
-        // find the matching button that toggles this section
         const btn = document.querySelector(`.legal-btn[onclick*="${target}"]`);
         if (btn && !content.classList.contains('open')) toggleLegal(btn, target);
-        // ensure it's visible
         setTimeout(() => { content.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
       }
     }
