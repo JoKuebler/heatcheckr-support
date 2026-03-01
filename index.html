@@ -67,6 +67,7 @@
     --font-display: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
     /* Label categories (matching app theme) */
+    --cat-decisive: #A67DB8;
     --cat-significance: #C9A857;
     --cat-competitiveness: #5BA3AD;
     --cat-highlights: #CD7E64;
@@ -524,6 +525,7 @@
     text-transform: uppercase;
     margin-top: 2px;
   }
+  .cat-decisive { color: var(--cat-decisive); }
   .cat-significance { color: var(--cat-significance); }
   .cat-competitiveness { color: var(--cat-competitiveness); }
   .cat-highlights { color: var(--cat-highlights); }
@@ -901,10 +903,17 @@
       <div>
         <p class="section-label">Game Labels</p>
         <h2 class="section-title">Not all exciting games are the same.</h2>
-        <p class="section-desc">Labels break down exactly why a game was worth your time — organized into four categories.</p>
+        <p class="section-desc">Labels break down exactly why a game was worth your time — organized into five categories.</p>
       </div>
     </div>
     <div class="labels-grid">
+      <!-- Potential Spoilers -->
+      <div class="label-chip reveal"><span class="emoji">🚨</span><div class="label-info"><div class="label-name">Buzzer Beater</div><div class="label-cat cat-decisive">Potential Spoilers</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Clutch Shot</div><div class="label-cat cat-decisive">Potential Spoilers</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">💔</span><div class="label-info"><div class="label-name">OT Heartbreaker</div><div class="label-cat cat-decisive">Potential Spoilers</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">⏳</span><div class="label-info"><div class="label-name">Double OT Marathon</div><div class="label-cat cat-decisive">Potential Spoilers</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🕰️</span><div class="label-info"><div class="label-name">Triple OT Epic</div><div class="label-cat cat-decisive">Potential Spoilers</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🏀</span><div class="label-info"><div class="label-name">Overtime Thriller</div><div class="label-cat cat-decisive">Potential Spoilers</div></div></div>
       <!-- Significance -->
       <div class="label-chip reveal"><span class="emoji">⭐</span><div class="label-info"><div class="label-name">Instant Classic</div><div class="label-cat cat-significance">Significance</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🏆</span><div class="label-info"><div class="label-name">Elite Matchup</div><div class="label-cat cat-significance">Significance</div></div></div>
@@ -917,11 +926,9 @@
       <div class="label-chip reveal"><span class="emoji">📸</span><div class="label-info"><div class="label-name">Photo Finish</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <div class="label-chip reveal"><span class="emoji">⚡</span><div class="label-info"><div class="label-name">Q4 Comeback</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🔥</span><div class="label-info"><div class="label-name">Hot Start</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
-      <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Game Winner</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
-      <div class="label-chip reveal"><span class="emoji">🛡️</span><div class="label-info"><div class="label-name">Clutch Stop</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
-      <div class="label-chip reveal"><span class="emoji">⏳</span><div class="label-info"><div class="label-name">Double OT Marathon</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
-      <div class="label-chip reveal"><span class="emoji">🕰️</span><div class="label-info"><div class="label-name">Triple OT Epic</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
-      <div class="label-chip reveal"><span class="emoji">💔</span><div class="label-info"><div class="label-name">OT Heartbreaker</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🏃</span><div class="label-info"><div class="label-name">Late Run</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🏃</span><div class="label-info"><div class="label-name">Furious Late Rally</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🎢</span><div class="label-info"><div class="label-name">Roller Coaster</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <!-- Highlights -->
       <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">3-Point Shootout</div><div class="label-cat cat-highlights">Highlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🏃</span><div class="label-info"><div class="label-name">High Octane</div><div class="label-cat cat-highlights">Highlights</div></div></div>
@@ -932,9 +939,10 @@
       <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Sniper Game</div><div class="label-cat cat-highlights">Highlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🖐️</span><div class="label-info"><div class="label-name">Pickpocket Alert</div><div class="label-cat cat-highlights">Highlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🚫</span><div class="label-info"><div class="label-name">Block Party</div><div class="label-cat cat-highlights">Highlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🛡️</span><div class="label-info"><div class="label-name">Clutch Stop</div><div class="label-cat cat-highlights">Highlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🌊</span><div class="label-info"><div class="label-name">Free Flowing</div><div class="label-cat cat-highlights">Highlights</div></div></div>
       <!-- Lowlights -->
-      <div class="label-chip reveal"><span class="emoji">🔒</span><div class="label-info"><div class="label-name">Defensive Slugfest</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🔒</span><div class="label-info"><div class="label-name">Defensive Slugfest</div><div class="label-cat cat-competitiveness">Competitiveness</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🎪</span><div class="label-info"><div class="label-name">Chaos Ball</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🧱</span><div class="label-info"><div class="label-name">Brick Fest</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🎯</span><div class="label-info"><div class="label-name">Free Throw Parade</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
@@ -942,6 +950,7 @@
       <div class="label-chip reveal"><span class="emoji">😴</span><div class="label-info"><div class="label-name">Blowout Alert</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">😎</span><div class="label-info"><div class="label-name">Easy Win</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
       <div class="label-chip reveal"><span class="emoji">🍔</span><div class="label-info"><div class="label-name">Nothing Burger</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
+      <div class="label-chip reveal"><span class="emoji">🔀</span><div class="label-info"><div class="label-name">Wire-to-Wire</div><div class="label-cat cat-lowlights">Lowlights</div></div></div>
     </div>
   </div>
 </section>
