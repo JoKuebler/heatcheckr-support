@@ -142,6 +142,19 @@
     transition: transform 0.2s, box-shadow 0.2s !important;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+  .nav-x-link {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+    line-height: 0;
+  }
+  .nav-x-link:hover { color: var(--text); }
+  .nav-x-link svg { width: 18px; height: 18px; fill: currentColor; }
 
   /* ─── Hero ─── */
   .hero {
@@ -767,12 +780,104 @@
   "name": "HeatCheckr",
   "applicationCategory": "SportsApplication",
   "operatingSystem": "iOS, Android",
-  "description": "Spoiler-free NBA game excitement scores and analysis. Never waste time on boring NBA games.",
+  "url": "https://www.heatcheckr.com",
+  "description": "Spoiler-free NBA game excitement scores and analysis. Find the best NBA games to watch without spoilers — skip blowouts, find instant classics.",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
+  },
+  "screenshot": "https://www.heatcheckr.com/images/icon.png",
+  "author": {
+    "@type": "Person",
+    "name": "Jonas"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HeatCheckr",
+  "url": "https://www.heatcheckr.com",
+  "description": "Spoiler-free NBA game ratings. Find the best NBA games to watch without spoilers.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.heatcheckr.com",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are excitement scores calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every game is analyzed using 20+ factors including final margin, lead changes, clutch plays, overtime, game flow, pace, and scoring patterns. Each factor is weighted based on its impact on game excitement, then combined into a 0–10 score. Higher scores mean more exciting games."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is data updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data is updated multiple times throughout the day with analysis of yesterday's games. Scheduled games for today are also shown so you can plan ahead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see games from previous days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Swipe left or use the navigation arrows to browse historical games from past days. Great for catching up on games you missed throughout the week."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I filter which labels I see?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Tap the settings icon (three lines) in the top right corner to toggle label categories on or off. Customize exactly what information you see for each game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do favorite team notifications work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Go to Settings, then Favorite Team and pick your team. When they play a game that scores above the excitement threshold, you'll get a personalized push notification the next morning. You can turn this on or off at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I choose where highlights open?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! By default, the highlight button opens YouTube recaps. If you prefer, toggle Use NBA.com Highlights in Settings to switch to the official NBA highlight player instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Heat Report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Heat Report is an upcoming feature that will show season-long stats, excitement trends, hottest teams, and more. Tap the chart icon on the top left to see a preview of what's coming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this app affiliated with the NBA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. HeatCheckr is an independent app created by a fan. We use publicly available data from NBA.com and link to official NBA highlight videos. Not endorsed by or affiliated with the NBA in any way."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -791,6 +896,9 @@
     <a href="#faq">FAQ</a>
     <a href="#support">Support</a>
   </div>
+  <a href="https://x.com/heatcheckrapp" target="_blank" rel="noopener noreferrer" class="nav-x-link" aria-label="HeatCheckr on X">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
 </nav>
 
 <!-- Hero -->
