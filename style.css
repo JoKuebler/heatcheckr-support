@@ -208,6 +208,7 @@
     .hero-inner { flex-direction: column; gap: 20px; }
     .hero-text { align-items: center; text-align: center; max-width: 680px; }
     .hero-text .hero-actions { justify-content: center; }
+    .hero-phone { max-width: 100%; }
   }
   .hero-phone {
     margin-top: 48px;
@@ -217,6 +218,9 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
+    min-width: 0;
+    flex-shrink: 1;
+    max-width: 50%;
   }
   .hero-phone img {
     max-width: 640px;
