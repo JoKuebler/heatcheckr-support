@@ -660,20 +660,8 @@
 
   /* ─── Behind the Scenes / Support Section ─── */
   .support-section {
-    position: relative;
     padding-top: 40px;
   }
-  .support-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 0%, rgba(201,168,87,0.08), transparent 55%),
-      radial-gradient(circle at 85% 100%, rgba(201,8,42,0.06), transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .support-section .section-inner { position: relative; z-index: 1; }
   .support-header { text-align: center; margin-bottom: 56px; }
   .support-header .section-title { margin: 0 auto; }
 
