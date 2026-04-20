@@ -658,6 +658,160 @@
   }
   .btn-coffee:hover { transform: translateY(-2px); box-shadow: 0 6px 24px var(--accent-glow); }
 
+  /* ─── Behind the Scenes / Support Section ─── */
+  .support-section {
+    position: relative;
+    padding-top: 40px;
+  }
+  .support-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(201,168,87,0.08), transparent 55%),
+      radial-gradient(circle at 85% 100%, rgba(201,8,42,0.06), transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .support-section .section-inner { position: relative; z-index: 1; }
+  .support-header { text-align: center; margin-bottom: 56px; }
+  .support-header .section-title { margin: 0 auto; }
+
+  .story-card {
+    max-width: 780px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--card) 0%, #1E1D1A 100%);
+    border: 1px solid rgba(201,168,87,0.3);
+    border-radius: 24px;
+    padding: 48px 56px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+  .story-avatar {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(201,168,87,0.15);
+    border: 1px solid rgba(201,168,87,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+  .story-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .story-body p {
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+  .story-body p:last-child { margin-bottom: 0; }
+  .story-body strong { color: var(--text); font-weight: 600; }
+  .story-greeting {
+    color: var(--text) !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+  }
+  .story-sign {
+    margin-top: 20px !important;
+    color: var(--amber) !important;
+    font-weight: 500 !important;
+    font-style: italic;
+  }
+
+  .support-values {
+    max-width: 1000px;
+    margin: 56px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .support-value {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .support-value:hover { border-color: rgba(201,168,87,0.4); transform: translateY(-2px); }
+  .support-value .value-emoji {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(201,168,87,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .support-value h4 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .support-value p {
+    color: var(--text-mid);
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .coffee-cta {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .btn-coffee-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #FFDD00 0%, #F5C500 100%);
+    color: #1A1A1A;
+    padding: 22px 48px;
+    border-radius: 14px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    text-decoration: none;
+    box-shadow: 0 12px 32px rgba(255,221,0,0.25), 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .btn-coffee-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(255,221,0,0.35), 0 6px 16px rgba(0,0,0,0.35);
+  }
+  .btn-coffee-large .bmc-emoji { font-size: 26px; }
+  .coffee-note {
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .story-card {
+      flex-direction: column;
+      padding: 36px 28px;
+      gap: 20px;
+      text-align: left;
+    }
+    .story-avatar { width: 56px; height: 56px; font-size: 24px; }
+    .support-values { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+    .btn-coffee-large { padding: 18px 36px; font-size: 17px; width: 100%; justify-content: center; }
+    .support-header { margin-bottom: 40px; }
+  }
+
   /* ─── Legal Sections ─── */
   .legal-section { padding: 100px 24px 60px; }
   .legal-toggle {
