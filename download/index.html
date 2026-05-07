@@ -75,11 +75,6 @@
     gap: 12px;
     align-items: stretch;
   }
-  .dl-status {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
-    margin-top: 24px;
-  }
   .dl-home {
     display: inline-block;
     margin-top: 20px;
@@ -118,41 +113,8 @@
       </a>
     </div>
 
-    <p class="dl-status" id="dl-status">Detecting your device…</p>
     <a href="/" class="dl-home">← heatcheckr.com</a>
   </div>
 </main>
-
-<script>
-(function () {
-  var APPLE_URL = 'https://apps.apple.com/app/heatcheckr/id6757223698';
-  var GOOGLE_URL = 'https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck&pcampaignid=web_share';
-  var HOME_URL = 'https://www.heatcheckr.com/';
-
-  var ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
-  var status = document.getElementById('dl-status');
-
-  // iOS: iPhone, iPad, iPod — plus iPadOS 13+ which reports as Mac with touch support
-  var isIOS = /iphone|ipad|ipod/.test(ua) ||
-              (/macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-
-  // Android (excluding Windows Phone which can contain "android" in some UAs)
-  var isAndroid = /android/.test(ua) && !/windows phone/.test(ua);
-
-  if (isIOS) {
-    if (status) status.textContent = 'Opening App Store…';
-    window.location.replace(APPLE_URL);
-  } else if (isAndroid) {
-    if (status) status.textContent = 'Opening Google Play…';
-    window.location.replace(GOOGLE_URL);
-  } else {
-    // Desktop / unknown — bounce to homepage as the user-facing fallback.
-    // The visible buttons above remain as a manual fallback for crawlers,
-    // in-app browsers that block redirects, or if the bounce is slow.
-    if (status) status.textContent = 'Redirecting to heatcheckr.com…';
-    setTimeout(function () { window.location.replace(HOME_URL); }, 400);
-  }
-})();
-</script>
 </body>
 </html>
