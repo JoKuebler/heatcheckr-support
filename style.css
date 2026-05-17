@@ -53,7 +53,7 @@
     padding: 18px 20px;
     display: flex; align-items: center; justify-content: center;
     gap: 48px;
-    background: rgba(15,17,21,0.85);
+    background: rgba(15,17,21,0.98);
     backdrop-filter: blur(14px) saturate(1.4);
     border-bottom: 1px solid rgba(42,48,64,0.5);
     transition: background 0.3s;
