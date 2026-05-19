@@ -298,14 +298,14 @@
 
   /* ── Free vs Pass comparison ── */
   .compare-table {
-    margin-top: 56px;
+    margin-top: 48px;
     border: 1px solid var(--border);
     border-radius: 16px;
     overflow: hidden;
   }
   .compare-row {
     display: grid;
-    grid-template-columns: 1fr 120px 120px;
+    grid-template-columns: 1fr 150px 150px;
     border-bottom: 1px solid var(--border);
     font-size: 14px;
   }
@@ -319,20 +319,42 @@
     color: var(--text-dim);
   }
   .compare-cell {
-    padding: 16px 20px;
+    padding: 18px 20px;
     display: flex;
     align-items: center;
   }
-  .compare-cell:not(:first-child) { justify-content: center; }
-  .compare-cell.feature-name { color: var(--text-mid); font-weight: 400; }
-  .compare-cell.col-free { color: var(--text-dim); font-size: 13px; }
+  .compare-cell:not(:first-child) { justify-content: center; text-align: center; flex-direction: column; gap: 2px; }
+  .compare-cell.feature-name { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .compare-cell .cell-title { color: var(--text-mid); font-weight: 500; font-size: 14px; }
+  .compare-cell .cell-sub { color: var(--text-dim); font-size: 12px; font-weight: 300; line-height: 1.4; }
+  .compare-cell.col-free { color: var(--text-dim); font-size: 13px; font-weight: 500; }
   .compare-cell.col-pass { color: var(--text); font-size: 13px; font-weight: 600; }
   .compare-header .compare-cell:last-child { color: var(--accent); }
   .check { color: #22C55E; font-size: 16px; }
   .cross { color: var(--text-dim); font-size: 16px; }
-  @media (max-width: 580px) {
-    .compare-table { display: none; } /* too narrow — pricing cards cover it */
+  @media (max-width: 680px) {
+    .compare-row { grid-template-columns: 1fr 110px 110px; }
+    .compare-cell { padding: 14px 14px; }
+    .compare-cell .cell-sub { display: none; }
   }
+  @media (max-width: 480px) {
+    .compare-table { display: none; }
+  }
+
+  /* ── Free trial banner ── */
+  .trial-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 12px;
+    padding: 16px 22px;
+    margin-bottom: 36px;
+  }
+  .trial-banner-icon { font-size: 22px; flex-shrink: 0; }
+  .trial-banner-text strong { color: #22C55E; font-size: 14px; font-weight: 700; display: block; margin-bottom: 2px; }
+  .trial-banner-text span { color: var(--text-mid); font-size: 13px; font-weight: 300; }
 
   /* ── Letter from dev ── */
   .hp-letter {
@@ -408,7 +430,7 @@
     margin-bottom: 10px;
   }
   .status-live { color: #22C55E; }
-  .status-soon { color: var(--amber); }
+  .status-soon { color: #F97316; }
   .status-later { color: var(--text-dim); }
   .roadmap-item h4 {
     font-family: var(--font-display);
@@ -514,52 +536,60 @@
   </div>
 </div>
 
-<!-- What you get -->
+<!-- What's included + comparison -->
 <section id="features">
   <div class="section-inner">
     <div class="reveal">
       <p class="section-label">What's included</p>
-      <h2 class="section-title">Everything in Heat Pass.</h2>
-      <p class="section-desc">One subscription, all leagues. NBA stays completely free — Heat Pass adds everything on top.</p>
+      <h2 class="section-title">NBA is always free.</h2>
+      <p class="section-desc">HeatCheckr will never put NBA coverage behind a paywall — nothing is taken away from what the app originally was. That's a commitment to everyone who used and supported the app from the beginning. Heat Pass only adds on top.</p>
     </div>
 
-    <div class="benefits-grid">
-      <div class="benefit-card hp-highlight reveal">
-        <div class="benefit-badge">Live now</div>
-        <div class="benefit-icon-wrap">🏀</div>
-        <h3>WNBA Coverage</h3>
-        <p>Full WNBA season — excitement scores, labels, standout players, and highlights for every game. Today's schedule and results, plus the full season history.</p>
+    <div class="compare-table reveal">
+      <div class="compare-row compare-header">
+        <div class="compare-cell">Feature</div>
+        <div class="compare-cell col-free">Free</div>
+        <div class="compare-cell col-pass">Heat Pass</div>
       </div>
-
-      <div class="benefit-card hp-coming reveal">
-        <div class="benefit-badge coming-badge">September 2026</div>
-        <div class="benefit-icon-wrap">🌍</div>
-        <h3>EuroLeague</h3>
-        <p>Europe's top club competition, scored and labeled just like the NBA. Regular season, playoffs, and highlight links — launching with the 2026–27 EuroLeague season.</p>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">
+          <span class="cell-title">NBA, WNBA &amp; EuroLeague coverage</span>
+          <span class="cell-sub">Excitement scores, smart labels, standout players &amp; spoiler-free highlight links for every game</span>
+        </div>
+        <div class="compare-cell col-free">Daily Coverage</div>
+        <div class="compare-cell col-pass">Full Season</div>
       </div>
-
-      <div class="benefit-card reveal">
-        <div class="benefit-icon-wrap">📅</div>
-        <h3>Full Season History</h3>
-        <p>Browse any past day, not just the last seven. Catch up on missed games from weeks ago, or scroll back to find that game you half-remember — without spoilers.</p>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">
+          <span class="cell-title">Season history</span>
+          <span class="cell-sub">Browse any past day without spoilers — find that game you half-remember from weeks ago</span>
+        </div>
+        <div class="compare-cell col-free">Last 7 days</div>
+        <div class="compare-cell col-pass">Any past day</div>
       </div>
-
-      <div class="benefit-card reveal">
-        <div class="benefit-icon-wrap">📈</div>
-        <h3>Team Form</h3>
-        <p>See each team's last 5 games at a glance. Form bars on every game card tell you who's hot, who's struggling, and which matchup has the most at stake.</p>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">
+          <span class="cell-title">Team form</span>
+          <span class="cell-sub">Form bars on every game card showing last 5 games — see who's hot and which matchup has the most at stake</span>
+        </div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell col-pass">Last 5 games</div>
       </div>
-
-      <div class="benefit-card reveal">
-        <div class="benefit-icon-wrap">⭐</div>
-        <h3>Multiple Favorite Teams</h3>
-        <p>Follow more than one team. Get notified whenever any of your favorites play an exciting game — ideal if you follow teams across different leagues.</p>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">
+          <span class="cell-title">Favorite teams</span>
+          <span class="cell-sub">Get notified whenever any of your followed teams play an exciting game across any league</span>
+        </div>
+        <div class="compare-cell col-free">1 team</div>
+        <div class="compare-cell col-pass">Multiple teams</div>
       </div>
-
-      <div class="benefit-card reveal">
-        <div class="benefit-icon-wrap">🚫</div>
-        <h3>Ad-Free</h3>
-        <p>No banners, no interruptions. Heat Pass removes all ads so the app stays focused on what matters — finding the games worth watching.</p>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">
+          <span class="cell-title">Ads</span>
+          <span class="cell-sub">Heat Pass removes all banners — no interruptions, just the games</span>
+        </div>
+        <div class="compare-cell col-free">Banner ads</div>
+        <div class="compare-cell col-pass">Ad-free</div>
       </div>
     </div>
   </div>
@@ -571,7 +601,15 @@
     <div class="reveal">
       <p class="section-label">Pricing</p>
       <h2 class="section-title">Simple, honest pricing.</h2>
-      <p class="section-desc">No hidden fees. Prices shown in EUR and may vary slightly by region. Cancel anytime from your App Store or Play Store settings.</p>
+      <p class="section-desc">Prices shown in EUR and may vary slightly by region. Cancel anytime from your App Store or Play Store settings.</p>
+    </div>
+
+    <div class="trial-banner reveal">
+      <span class="trial-banner-icon">🎁</span>
+      <div class="trial-banner-text">
+        <strong>Free trial available</strong>
+        <span>Try Heat Pass free before committing — open the app and tap Heat Pass to see the current trial offer for your region.</span>
+      </div>
     </div>
 
     <div class="pricing-grid">
@@ -603,71 +641,6 @@
         <a href="https://apps.apple.com/app/heatcheckr/id6757223698" target="_blank" rel="noopener" class="plan-cta">Get started</a>
       </div>
     </div>
-    <p class="pricing-note reveal">A free trial may be available depending on your region and platform. Check the app for current offers.</p>
-  </div>
-</section>
-
-<!-- Free vs Heat Pass comparison -->
-<section>
-  <div class="section-inner">
-    <div class="reveal">
-      <p class="section-label">Free vs Heat Pass</p>
-      <h2 class="section-title">NBA is always free.</h2>
-      <p class="section-desc">HeatCheckr will never put NBA coverage behind a paywall. Heat Pass only adds new things — nothing is taken away from what the app originally was. That's a commitment to everyone who used and supported the app from the beginning.</p>
-    </div>
-
-    <div class="compare-table reveal">
-      <div class="compare-row compare-header">
-        <div class="compare-cell">Feature</div>
-        <div class="compare-cell col-free">Free</div>
-        <div class="compare-cell col-pass">Heat Pass</div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">NBA — excitement scores, labels, highlights</div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">Last 7 days of NBA history</div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">WNBA — today's games and tomorrow's schedule</div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">WNBA — full season history</div>
-        <div class="compare-cell"><span class="cross">—</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">EuroLeague (coming September 2026)</div>
-        <div class="compare-cell"><span class="cross">—</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">Full season history — any past day</div>
-        <div class="compare-cell"><span class="cross">—</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">Team form — last 5 games</div>
-        <div class="compare-cell"><span class="cross">—</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">Multiple favorite teams</div>
-        <div class="compare-cell"><span class="cross">—</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-      <div class="compare-row">
-        <div class="compare-cell feature-name">Ad-free experience</div>
-        <div class="compare-cell"><span class="cross">—</span></div>
-        <div class="compare-cell"><span class="check">✓</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -692,47 +665,24 @@
         <p>Full season coverage with the same excitement engine. Women's basketball deserves the same treatment.</p>
       </div>
       <div class="roadmap-item reveal">
-        <p class="roadmap-status status-soon">◐ September 2026</p>
+        <p class="roadmap-status status-live">● Live now</p>
+        <h4>March Madness</h4>
+        <p>NCAA tournament coverage for the bracket season. Already built and tested — activates every March.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-soon">● September 2026</p>
         <h4>EuroLeague</h4>
         <p>Europe's top club competition — Real Madrid, Barcelona, Olympiacos, ALBA Berlin — all scored and labeled.</p>
       </div>
       <div class="roadmap-item reveal">
         <p class="roadmap-status status-later">○ Exploring</p>
-        <h4>March Madness</h4>
-        <p>NCAA tournament coverage returns when the bracket rolls around. Already built — just seasonal.</p>
-      </div>
-      <div class="roadmap-item reveal">
-        <p class="roadmap-status status-later">○ Exploring</p>
-        <h4>More European leagues</h4>
-        <p>EuroCup, national leagues (ACB, Bundesliga, LNB) — expanding coverage as the platform grows.</p>
+        <h4>NFL</h4>
+        <p>The excitement-score model applied to American football — big plays, comebacks, clutch moments, all without the final score.</p>
       </div>
       <div class="roadmap-item reveal">
         <p class="roadmap-status status-later">○ Exploring</p>
         <h4>Other sports</h4>
-        <p>The excitement-score model works for any sport with play-by-play data. Where it goes next depends on what you want.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Letter from Jonas -->
-<section>
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center; margin-bottom: 8px;">
-      <p class="section-label">From the developer</p>
-      <h2 class="section-title" style="margin:0 auto; max-width:100%; text-align:center;">Why Heat Pass?</h2>
-    </div>
-
-    <div class="hp-letter reveal">
-      <div class="hp-letter-avatar">🏀</div>
-      <div class="hp-letter-body">
-        <p class="hp-letter-greeting">Hey — I'm Jonas, the person behind HeatCheckr.</p>
-        <p>I built HeatCheckr because I'm a European NBA fan who watches delayed games. I needed a spoiler-free way to know which games were actually worth the two hours — and I couldn't find one. So I built it.</p>
-        <p>For the first year, HeatCheckr was entirely free and ran on Buy Me a Coffee donations and AdMob ads. That worked, but it also meant I couldn't justify the time to expand significantly beyond the NBA — more leagues mean more API quota, more server costs, more development hours, and more maintenance every season.</p>
-        <p><strong>Heat Pass changes that.</strong> It's not a gate on what already exists — NBA is free and stays free. It's a way to fund what comes next. WNBA is the first step. EuroLeague follows in September. The long-term goal is to cover every league worth watching, across multiple sports, with the same care I've put into the NBA pipeline.</p>
-        <p>I'm still a solo developer building this in evenings and weekends. Heat Pass at €0.99/month is deliberately priced below a coffee — because I want it to be an easy yes for anyone who's found the app useful, not a hard decision. The lifetime option is there for the people who want to just pay once and forget about it.</p>
-        <p>If you subscribe, it goes directly into keeping the servers running and buying me time to build more. I appreciate it more than I can say.</p>
-        <p class="hp-letter-sign">— Jonas</p>
+        <p>Where it goes next depends on what you want. The model works for any sport with play-by-play data.</p>
       </div>
     </div>
   </div>
