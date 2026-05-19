@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Heat Pass — Premium NBA, WNBA & EuroLeague | HeatCheckr</title>
+<meta name="description" content="Heat Pass unlocks WNBA coverage, EuroLeague (coming September 2026), full season history, ad-free experience, and more. Support one fan building HeatCheckr for all fans.">
+<meta name="keywords" content="heatcheckr premium, heat pass, wnba app, euroleague app, nba spoiler free premium, basketball app subscription">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.heatcheckr.com/heatpass/">
+<meta property="og:title" content="Heat Pass — Premium Basketball Coverage | HeatCheckr">
+<meta property="og:description" content="Unlock WNBA, EuroLeague, full season history and an ad-free experience. Support the solo dev behind HeatCheckr.">
+<meta property="og:image" content="https://www.heatcheckr.com/images/icon.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.heatcheckr.com/heatpass/">
+<meta property="twitter:title" content="Heat Pass — Premium Basketball Coverage | HeatCheckr">
+<meta property="twitter:description" content="Unlock WNBA, EuroLeague, full season history and an ad-free experience.">
+<meta property="twitter:image" content="https://www.heatcheckr.com/images/icon.png">
+
+<link rel="icon" type="image/png" href="/images/icon.png">
+<link rel="canonical" href="https://www.heatcheckr.com/heatpass/">
+<meta name="robots" content="index, follow">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0F1115">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Heat Pass",
+  "description": "Premium subscription for HeatCheckr. Unlocks WNBA coverage, EuroLeague (coming September 2026), full season history, multi-team favorites, and an ad-free experience.",
+  "brand": { "@type": "Brand", "name": "HeatCheckr" },
+  "url": "https://www.heatcheckr.com/heatpass/",
+  "offers": [
+    { "@type": "Offer", "name": "Monthly", "price": "0.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+    { "@type": "Offer", "name": "Yearly", "price": "9.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+    { "@type": "Offer", "name": "Lifetime", "price": "19.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+<style>
+  /* ── Heat Pass page-specific styles ── */
+
+  /* Hero override — tighter top padding for sub-page */
+  .hp-hero {
+    min-height: auto;
+    padding: 140px 24px 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .hp-hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,8,42,0.18) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    filter: blur(60px);
+  }
+  .hp-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,8,42,0.12);
+    border: 1px solid rgba(201,8,42,0.35);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hp-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 7vw, 68px);
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    line-height: 1.05;
+    color: var(--text);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .hp-hero h1 .accent { color: var(--accent); }
+  .hp-hero-sub {
+    margin: 24px auto 0;
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 560px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hp-price-hint {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+  .hp-cta-row {
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hp-cta-row .btn-primary { font-size: 15px; padding: 14px 36px; }
+
+  /* ── Benefit grid ── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+  }
+  .benefit-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+  .benefit-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .benefit-card.hp-highlight {
+    border-color: rgba(201,8,42,0.4);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(201,8,42,0.04) 100%);
+  }
+  .benefit-card.hp-coming {
+    opacity: 0.65;
+    border-style: dashed;
+  }
+  .benefit-card.hp-coming:hover { border-color: var(--border); transform: none; }
+  .benefit-icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+    background: var(--accent-dim);
+  }
+  .benefit-card.hp-coming .benefit-icon-wrap { background: rgba(255,255,255,0.04); }
+  .benefit-card h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .benefit-card p {
+    color: var(--text-mid);
+    font-size: 13px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .benefit-badge {
+    position: absolute;
+    top: -10px; right: 14px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .benefit-badge.coming-badge {
+    background: rgba(255,255,255,0.08);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+  @media (max-width: 900px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 580px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+  /* ── Pricing ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+  }
+  .plan-card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card:hover { border-color: rgba(201,8,42,0.5); transform: translateY(-4px); }
+  .plan-card.plan-featured {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(201,8,42,0.06) 100%);
+    box-shadow: 0 0 40px rgba(201,8,42,0.12);
+  }
+  .plan-badge {
+    position: absolute;
+    top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .plan-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+  }
+  .plan-price {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .plan-price sup {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    vertical-align: super;
+    line-height: 0;
+  }
+  .plan-period {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .plan-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+  }
+  .plan-subtitle {
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .plan-subtitle strong { color: var(--accent); font-weight: 600; }
+  .plan-cta {
+    display: block;
+    margin-top: 24px;
+    background: var(--card-hover);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .plan-card.plan-featured .plan-cta {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .plan-card.plan-featured .plan-cta:hover { background: #a8061f; }
+  .plan-cta:hover { background: var(--border); border-color: #444; }
+  .pricing-note {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 20px;
+    font-weight: 300;
+  }
+  @media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
+    .plan-card.plan-featured { order: -1; }
+  }
+
+  /* ── Free vs Pass comparison ── */
+  .compare-table {
+    margin-top: 56px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 120px 120px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.compare-header {
+    background: rgba(255,255,255,0.03);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .compare-cell {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+  }
+  .compare-cell:not(:first-child) { justify-content: center; }
+  .compare-cell.feature-name { color: var(--text-mid); font-weight: 400; }
+  .compare-cell.col-free { color: var(--text-dim); font-size: 13px; }
+  .compare-cell.col-pass { color: var(--text); font-size: 13px; font-weight: 600; }
+  .compare-header .compare-cell:last-child { color: var(--accent); }
+  .check { color: #22C55E; font-size: 16px; }
+  .cross { color: var(--text-dim); font-size: 16px; }
+  @media (max-width: 580px) {
+    .compare-table { display: none; } /* too narrow — pricing cards cover it */
+  }
+
+  /* ── Letter from dev ── */
+  .hp-letter {
+    max-width: 780px;
+    margin: 56px auto 0;
+    background: linear-gradient(135deg, var(--card) 0%, #1E1D1A 100%);
+    border: 1px solid rgba(201,168,87,0.3);
+    border-radius: 24px;
+    padding: 48px 56px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+  .hp-letter-avatar {
+    flex-shrink: 0;
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: rgba(201,8,42,0.12);
+    border: 1px solid rgba(201,8,42,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+  .hp-letter-body { flex: 1; min-width: 0; }
+  .hp-letter-body p {
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .hp-letter-body p:last-child { margin-bottom: 0; }
+  .hp-letter-body strong { color: var(--text); font-weight: 600; }
+  .hp-letter-greeting {
+    color: var(--text) !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+  }
+  .hp-letter-sign {
+    margin-top: 24px !important;
+    color: var(--amber) !important;
+    font-weight: 500 !important;
+    font-style: italic;
+  }
+  @media (max-width: 768px) {
+    .hp-letter { flex-direction: column; padding: 36px 28px; gap: 20px; }
+    .hp-letter-avatar { width: 52px; height: 52px; font-size: 22px; }
+  }
+
+  /* ── FAQ ── */
+  .hp-faq { max-width: 680px; margin-top: 48px; }
+
+  /* ── Roadmap teaser ── */
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .roadmap-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 20px;
+    transition: border-color 0.3s;
+  }
+  .roadmap-item:hover { border-color: rgba(201,168,87,0.4); }
+  .roadmap-status {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .status-live { color: #22C55E; }
+  .status-soon { color: var(--amber); }
+  .status-later { color: var(--text-dim); }
+  .roadmap-item h4 {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .roadmap-item p { color: var(--text-mid); font-size: 13px; line-height: 1.55; font-weight: 300; }
+  @media (max-width: 768px) { .roadmap-grid { grid-template-columns: 1fr; } }
+
+  /* ── Bottom CTA ── */
+  .hp-bottom-cta {
+    text-align: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hp-bottom-glow {
+    position: absolute;
+    width: 500px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,8,42,0.14) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    filter: blur(50px);
+  }
+  .hp-bottom-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--text);
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hp-bottom-cta p {
+    color: var(--text-mid);
+    font-size: 15px;
+    max-width: 440px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+    line-height: 1.7;
+    position: relative;
+  }
+  .hp-bottom-cta .hp-cta-row { position: relative; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/icon.png" alt="HeatCheckr" class="nav-icon" />
+    HeatCheckr</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/#features">Features</a>
+    <a href="/#labels">Labels</a>
+    <a href="/#press">Press</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#support">Support</a>
+    <a href="/heatpass/" class="nav-cta">Heat Pass</a>
+  </div>
+  <a href="https://buymeacoffee.com/jdkdevelopment" target="_blank" rel="noopener noreferrer" class="nav-bmc-link" aria-label="Support on Buy Me a Coffee">
+    <svg viewBox="0 0 29 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.7801 18.4828C13.3434 19.0979 11.7129 19.7953 9.59965 19.7953C8.71562 19.7935 7.8359 19.6723 6.98438 19.4348L8.44591 34.4403C8.49765 35.0675 8.78336 35.6523 9.24633 36.0786C9.70929 36.5048 10.3156 36.7414 10.945 36.7413C10.945 36.7413 13.0173 36.8489 13.7087 36.8489C14.453 36.8489 16.6846 36.7413 16.6846 36.7413C17.3138 36.7413 17.92 36.5046 18.3828 36.0784C18.8457 35.6521 19.1313 35.0674 19.1831 34.4403L20.7485 17.8586C20.0489 17.6197 19.3429 17.4609 18.547 17.4609C17.1705 17.4604 16.0614 17.9345 14.7801 18.4828Z" fill="#FFDD00"/>
+      <path d="M27.508 10.6911L27.2879 9.58098C27.0904 8.58492 26.6421 7.64375 25.6197 7.28374C25.292 7.16858 24.9201 7.11908 24.6688 6.88069C24.4175 6.6423 24.3433 6.27207 24.2852 5.92875C24.1775 5.29861 24.0764 4.66793 23.966 4.03887C23.8708 3.49806 23.7955 2.89052 23.5474 2.39437C23.2245 1.72817 22.5546 1.33857 21.8884 1.08081C21.547 0.953382 21.1986 0.845582 20.8449 0.757941C19.1805 0.318833 17.4306 0.157397 15.7183 0.0653782C13.663 -0.0480303 11.6023 -0.0138619 9.55192 0.167621C8.0258 0.306456 6.41843 0.474351 4.96819 1.00225C4.43814 1.19543 3.89195 1.42736 3.4889 1.83687C2.99436 2.34002 2.83293 3.11814 3.19401 3.74559C3.45069 4.19116 3.88549 4.50596 4.34666 4.71421C4.94736 4.98254 5.5747 5.18673 6.21825 5.32337C8.0102 5.71942 9.86618 5.87494 11.6969 5.94113C13.7259 6.02302 15.7583 5.95665 17.7776 5.74256C18.277 5.68767 18.7755 5.62184 19.2731 5.54507C19.8591 5.4552 20.2352 4.68892 20.0625 4.1551C19.8559 3.51689 19.3005 3.26935 18.6725 3.36568C18.58 3.38021 18.488 3.39366 18.3954 3.40711L18.3287 3.4168C18.1159 3.44371 17.9032 3.46882 17.6905 3.49214C17.251 3.53949 16.8105 3.57824 16.3688 3.60837C15.3798 3.67725 14.388 3.709 13.3968 3.71061C12.4228 3.71061 11.4483 3.68317 10.4764 3.61913C10.033 3.59007 9.59066 3.55312 9.1494 3.50828C8.94868 3.48729 8.7485 3.46523 8.54832 3.44048L8.35782 3.41626L8.31639 3.41034L8.1189 3.38182C7.71531 3.32101 7.31172 3.25106 6.91243 3.16657C6.87214 3.15763 6.8361 3.13522 6.81027 3.10303C6.78444 3.07084 6.77036 3.0308 6.77036 2.98953C6.77036 2.94826 6.78444 2.90822 6.81027 2.87603C6.8361 2.84384 6.87214 2.82143 6.91243 2.81249H6.91996C7.26598 2.73877 7.61468 2.67581 7.96446 2.62092C8.08105 2.60262 8.198 2.58468 8.31531 2.56711H8.31854C8.53756 2.55258 8.75765 2.51329 8.97559 2.48746C10.8717 2.29023 12.7792 2.22299 14.6845 2.28621C15.6096 2.31311 16.534 2.36746 17.4548 2.4611C17.6528 2.48154 17.8498 2.50307 18.0467 2.52729C18.122 2.53643 18.1979 2.54719 18.2738 2.55634L18.4266 2.57841C18.8722 2.64477 19.3154 2.72531 19.7563 2.82002C20.4096 2.96209 21.2485 3.00837 21.5391 3.72407C21.6317 3.95115 21.6736 4.20353 21.7248 4.44192L21.7899 4.74596C21.9476 5.48014 22.1016 6.19763 22.2559 6.91513C22.2459 7.12912 22.2243 7.17943 22.1932 7.22382C22.1621 7.2682 22.1221 7.3057 22.0759 7.33397C22.0297 7.36224 21.9781 7.38068 21.9244 7.38814H21.9201L21.8259 7.40105L21.7328 7.41343C21.438 7.45182 21.1427 7.48769 20.8471 7.52105C20.2648 7.58742 19.6817 7.64482 19.0977 7.69325C17.9371 7.78976 16.7742 7.85308 15.609 7.88321C15.0153 7.899 14.4217 7.90635 13.8284 7.90527C11.4666 7.90341 9.10678 7.76614 6.76068 7.49415C5.9987 7.3989 5.85556 7.37953 5.78668 7.36984C5.62524 7.34724 5.46381 7.32374 5.30237 7.29935C4.76048 7.21809 4.22182 7.118 3.68101 7.03029C3.02719 6.92266 2.40189 6.97648 1.8105 7.29935C1.32505 7.56499 0.932149 7.97235 0.684209 8.46707C0.429139 8.99443 0.353264 9.56861 0.239182 10.1353C0.125101 10.7019 -0.0524802 11.3116 0.014785 11.8933C0.15954 13.1487 1.03722 14.169 2.29965 14.3972C3.48729 14.6124 4.68138 14.7868 5.8787 14.9353C10.582 15.5113 15.3337 15.5802 20.0517 15.1409C20.436 15.105 20.8196 15.0659 21.2028 15.0235C21.3225 15.0104 21.4436 15.0242 21.5572 15.0639C21.6709 15.1036 21.7742 15.1682 21.8596 15.2531C21.9451 15.3379 22.0105 15.4407 22.051 15.5541C22.0915 15.6675 22.1062 15.7885 22.0939 15.9082L21.9745 17.0695C21.7337 19.4161 21.493 21.7624 21.2523 24.1087C21.0012 26.5725 20.7484 29.0362 20.4941 31.4998C20.4223 32.1936 20.3506 32.8872 20.2788 33.5807C20.21 34.2636 20.2003 34.968 20.0706 35.6428C19.8661 36.7039 19.1477 37.3556 18.0994 37.594C17.1391 37.8125 16.158 37.9273 15.1731 37.9362C14.0813 37.9422 12.99 37.8937 11.8981 37.8996C10.7326 37.9061 9.30492 37.7985 8.40518 36.931C7.61468 36.169 7.50544 34.976 7.39782 33.9444C7.25432 32.5787 7.11207 31.2131 6.97109 29.8477L6.18005 22.2554L5.66829 17.3429C5.58166 16.5136 5.16676 15.94 4.51295 15.9696C3.9533 15.9943 3.31724 16.47 3.38289 17.0996L3.76227 20.7416L4.54685 28.2753C4.77035 30.4153 4.99331 32.5556 5.21573 34.6962C5.25878 35.1063 5.29914 35.5174 5.34434 35.9274C5.59026 38.1682 7.30149 39.3757 9.42061 39.7158C10.6583 39.9149 11.9261 39.9558 13.1821 39.9762C14.7921 40.0021 16.4183 40.064 18.002 39.7723C20.3488 39.3418 22.1095 37.7748 22.3608 35.3441C22.4326 34.6424 22.5043 33.9405 22.5761 33.2384C22.8146 30.9166 23.0529 28.5946 23.2907 26.2724L24.0688 18.6849L24.4256 15.2076C24.4434 15.0352 24.5162 14.873 24.6333 14.7452C24.7503 14.6174 24.9055 14.5306 25.0757 14.4978C25.7467 14.367 26.3881 14.1437 26.8654 13.633C27.6253 12.8199 27.7765 11.7598 27.508 10.6911Z" fill="currentColor"/>
+    </svg>
+  </a>
+  <a href="https://x.com/heatcheckrapp" target="_blank" rel="noopener noreferrer" class="nav-x-link" aria-label="HeatCheckr on X">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+</nav>
+
+<!-- Hero -->
+<section class="hp-hero">
+  <div class="hp-hero-glow"></div>
+  <div class="hp-eyebrow reveal">Heat Pass</div>
+  <h1 class="reveal">More basketball.<br/><span class="accent">More leagues.</span></h1>
+  <p class="hp-hero-sub reveal">HeatCheckr started with the NBA. Heat Pass expands it further — WNBA is live now, EuroLeague is coming in September 2026, and more will follow. Support the build and get everything along the way.</p>
+  <p class="hp-price-hint reveal">From €0.99 / month &nbsp;·&nbsp; Available on iOS & Android</p>
+  <div class="hp-cta-row reveal">
+    <a href="https://apps.apple.com/app/heatcheckr/id6757223698" target="_blank" rel="noopener" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Get Heat Pass
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck" target="_blank" rel="noopener" class="btn-secondary">Google Play →</a>
+  </div>
+</section>
+
+<!-- Early adopter promise strip -->
+<div style="padding: 0 24px 56px;">
+  <div style="max-width:1000px; margin:0 auto; background:rgba(34,197,94,0.07); border:1px solid rgba(34,197,94,0.25); border-radius:16px; padding:28px 32px; display:flex; align-items:flex-start; gap:20px;" class="reveal">
+    <span style="font-size:26px; flex-shrink:0; line-height:1.2;">🤝</span>
+    <div>
+      <p style="color:#22C55E; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">A promise to early users</p>
+      <p style="color:var(--text); font-size:15px; font-weight:500; margin-bottom:6px;">Everything the app launched with stays free. Forever.</p>
+      <p style="color:var(--text-mid); font-size:14px; font-weight:300; line-height:1.65; margin:0;">HeatCheckr started as a free app and was supported entirely by people who believed in it early. Introducing premium doesn't mean taking anything away — NBA scores, labels, highlights, notifications, and history are not moving behind a paywall. Heat Pass only adds new things on top. Early supporters and free users keep exactly what they had.</p>
+    </div>
+  </div>
+</div>
+
+<!-- What you get -->
+<section id="features">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">What's included</p>
+      <h2 class="section-title">Everything in Heat Pass.</h2>
+      <p class="section-desc">One subscription, all leagues. NBA stays completely free — Heat Pass adds everything on top.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card hp-highlight reveal">
+        <div class="benefit-badge">Live now</div>
+        <div class="benefit-icon-wrap">🏀</div>
+        <h3>WNBA Coverage</h3>
+        <p>Full WNBA season — excitement scores, labels, standout players, and highlights for every game. Today's schedule and results, plus the full season history.</p>
+      </div>
+
+      <div class="benefit-card hp-coming reveal">
+        <div class="benefit-badge coming-badge">September 2026</div>
+        <div class="benefit-icon-wrap">🌍</div>
+        <h3>EuroLeague</h3>
+        <p>Europe's top club competition, scored and labeled just like the NBA. Regular season, playoffs, and highlight links — launching with the 2026–27 EuroLeague season.</p>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon-wrap">📅</div>
+        <h3>Full Season History</h3>
+        <p>Browse any past day, not just the last seven. Catch up on missed games from weeks ago, or scroll back to find that game you half-remember — without spoilers.</p>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon-wrap">📈</div>
+        <h3>Team Form</h3>
+        <p>See each team's last 5 games at a glance. Form bars on every game card tell you who's hot, who's struggling, and which matchup has the most at stake.</p>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon-wrap">⭐</div>
+        <h3>Multiple Favorite Teams</h3>
+        <p>Follow more than one team. Get notified whenever any of your favorites play an exciting game — ideal if you follow teams across different leagues.</p>
+      </div>
+
+      <div class="benefit-card reveal">
+        <div class="benefit-icon-wrap">🚫</div>
+        <h3>Ad-Free</h3>
+        <p>No banners, no interruptions. Heat Pass removes all ads so the app stays focused on what matters — finding the games worth watching.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Simple, honest pricing.</h2>
+      <p class="section-desc">No hidden fees. Prices shown in EUR and may vary slightly by region. Cancel anytime from your App Store or Play Store settings.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="plan-card reveal">
+        <p class="plan-name">Monthly</p>
+        <div class="plan-price"><sup>€</sup>0.99</div>
+        <p class="plan-period">per month</p>
+        <hr class="plan-divider" />
+        <p class="plan-subtitle">Try it out at the lowest commitment. Billed monthly, cancel anytime.</p>
+        <a href="https://apps.apple.com/app/heatcheckr/id6757223698" target="_blank" rel="noopener" class="plan-cta">Get started</a>
+      </div>
+
+      <div class="plan-card plan-featured reveal">
+        <div class="plan-badge">Best value</div>
+        <p class="plan-name">Yearly</p>
+        <div class="plan-price"><sup>€</sup>9.99</div>
+        <p class="plan-period">per year &nbsp;·&nbsp; <strong style="color:var(--accent)">Save 16%</strong></p>
+        <hr class="plan-divider" />
+        <p class="plan-subtitle">Just <strong>€0.83 / month</strong>. Lock in the best rate and get everything as it ships throughout the season.</p>
+        <a href="https://apps.apple.com/app/heatcheckr/id6757223698" target="_blank" rel="noopener" class="plan-cta">Get started</a>
+      </div>
+
+      <div class="plan-card reveal">
+        <p class="plan-name">Lifetime</p>
+        <div class="plan-price"><sup>€</sup>19.99</div>
+        <p class="plan-period">one-time payment</p>
+        <hr class="plan-divider" />
+        <p class="plan-subtitle">Pay once, own it forever. Every future league and feature included. No recurring charge, ever.</p>
+        <a href="https://apps.apple.com/app/heatcheckr/id6757223698" target="_blank" rel="noopener" class="plan-cta">Get started</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">A free trial may be available depending on your region and platform. Check the app for current offers.</p>
+  </div>
+</section>
+
+<!-- Free vs Heat Pass comparison -->
+<section>
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Free vs Heat Pass</p>
+      <h2 class="section-title">NBA is always free.</h2>
+      <p class="section-desc">HeatCheckr will never put NBA coverage behind a paywall. Heat Pass only adds new things — nothing is taken away from what the app originally was. That's a commitment to everyone who used and supported the app from the beginning.</p>
+    </div>
+
+    <div class="compare-table reveal">
+      <div class="compare-row compare-header">
+        <div class="compare-cell">Feature</div>
+        <div class="compare-cell col-free">Free</div>
+        <div class="compare-cell col-pass">Heat Pass</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">NBA — excitement scores, labels, highlights</div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">Last 7 days of NBA history</div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">WNBA — today's games and tomorrow's schedule</div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">WNBA — full season history</div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">EuroLeague (coming September 2026)</div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">Full season history — any past day</div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">Team form — last 5 games</div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">Multiple favorite teams</div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature-name">Ad-free experience</div>
+        <div class="compare-cell"><span class="cross">—</span></div>
+        <div class="compare-cell"><span class="check">✓</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section>
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">What's next</p>
+      <h2 class="section-title">The roadmap.</h2>
+      <p class="section-desc">Heat Pass is a bet on where HeatCheckr is going, not just where it is today. Every new league ships to existing subscribers automatically.</p>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-live">● Live now</p>
+        <h4>NBA</h4>
+        <p>Excitement scores, 40+ labels, spoiler-free highlights, star player tracking, push notifications. The foundation.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-live">● Live now</p>
+        <h4>WNBA</h4>
+        <p>Full season coverage with the same excitement engine. Women's basketball deserves the same treatment.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-soon">◐ September 2026</p>
+        <h4>EuroLeague</h4>
+        <p>Europe's top club competition — Real Madrid, Barcelona, Olympiacos, ALBA Berlin — all scored and labeled.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-later">○ Exploring</p>
+        <h4>March Madness</h4>
+        <p>NCAA tournament coverage returns when the bracket rolls around. Already built — just seasonal.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-later">○ Exploring</p>
+        <h4>More European leagues</h4>
+        <p>EuroCup, national leagues (ACB, Bundesliga, LNB) — expanding coverage as the platform grows.</p>
+      </div>
+      <div class="roadmap-item reveal">
+        <p class="roadmap-status status-later">○ Exploring</p>
+        <h4>Other sports</h4>
+        <p>The excitement-score model works for any sport with play-by-play data. Where it goes next depends on what you want.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Letter from Jonas -->
+<section>
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom: 8px;">
+      <p class="section-label">From the developer</p>
+      <h2 class="section-title" style="margin:0 auto; max-width:100%; text-align:center;">Why Heat Pass?</h2>
+    </div>
+
+    <div class="hp-letter reveal">
+      <div class="hp-letter-avatar">🏀</div>
+      <div class="hp-letter-body">
+        <p class="hp-letter-greeting">Hey — I'm Jonas, the person behind HeatCheckr.</p>
+        <p>I built HeatCheckr because I'm a European NBA fan who watches delayed games. I needed a spoiler-free way to know which games were actually worth the two hours — and I couldn't find one. So I built it.</p>
+        <p>For the first year, HeatCheckr was entirely free and ran on Buy Me a Coffee donations and AdMob ads. That worked, but it also meant I couldn't justify the time to expand significantly beyond the NBA — more leagues mean more API quota, more server costs, more development hours, and more maintenance every season.</p>
+        <p><strong>Heat Pass changes that.</strong> It's not a gate on what already exists — NBA is free and stays free. It's a way to fund what comes next. WNBA is the first step. EuroLeague follows in September. The long-term goal is to cover every league worth watching, across multiple sports, with the same care I've put into the NBA pipeline.</p>
+        <p>I'm still a solo developer building this in evenings and weekends. Heat Pass at €0.99/month is deliberately priced below a coffee — because I want it to be an easy yes for anyone who's found the app useful, not a hard decision. The lifetime option is there for the people who want to just pay once and forget about it.</p>
+        <p>If you subscribe, it goes directly into keeping the servers running and buying me time to build more. I appreciate it more than I can say.</p>
+        <p class="hp-letter-sign">— Jonas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">Questions about Heat Pass.</h2>
+    </div>
+    <div class="hp-faq faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is NBA coverage still free? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes, always. NBA excitement scores, labels, highlights, push notifications — all of it stays free. Heat Pass adds WNBA, EuroLeague, full history, team form, multi-team favorites, and removes ads. Nothing gets taken away from the free tier.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I try Heat Pass before paying? <span class="faq-icon">+</span></button>
+        <div class="faq-a">A free trial may be available depending on your region and platform. Open the app and tap "Heat Pass" to see the current offer. Apple and Google manage trial availability based on whether you've previously subscribed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What's the difference between monthly, yearly, and lifetime? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Monthly (€0.99) is billed every month — lowest commitment. Yearly (€9.99) works out to €0.83/month and saves 16% — best value if you plan to keep it. Lifetime (€19.99) is a one-time payment with no further charges and includes every future league that ships to Heat Pass.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How do I cancel? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Cancellations are handled directly through Apple App Store or Google Play — not through HeatCheckr. On iOS: Settings → Apple ID → Subscriptions. On Android: Play Store → Profile → Payments & subscriptions. You keep access until the end of the current billing period.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What does the lifetime purchase cover? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The lifetime purchase gives you Heat Pass access for as long as the app exists. All future leagues that ship to Heat Pass are included automatically — you don't need to pay again. It's a bet on HeatCheckr's future, and I intend to justify it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">When exactly is EuroLeague launching? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The target is the start of the 2026–27 EuroLeague season in September 2026. The data pipeline is already built — what remains is calibration, testing, and final tuning before launch. It's visible in My Leagues settings now as a preview.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">I bought Heat Pass on iOS. Does it work on Android too? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Unfortunately, App Store and Google Play subscriptions are separate — a purchase on one platform doesn't carry over to the other. This is a platform limitation that we can't work around.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<div class="hp-bottom-cta">
+  <div class="hp-bottom-glow"></div>
+  <h2 class="reveal">Ready to unlock more?</h2>
+  <p class="reveal">Download the app and find Heat Pass in the settings. NBA is free to get started.</p>
+  <div class="hp-cta-row reveal">
+    <a href="https://apps.apple.com/app/heatcheckr/id6757223698" class="btn-store btn-apple" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">Download on the</span>
+        <span class="store-name">App Store</span>
+      </div>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck" class="btn-store btn-google" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">Get it on</span>
+        <span class="store-name">Google Play</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="/images/icon.png" alt="HeatCheckr" class="footer-icon" />
+    HeatCheckr</span>
+  </div>
+  <p>Not affiliated with the NBA · © 2025 JDK Development · All rights reserved</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/download/">Download</a>
+    <a href="https://apps.apple.com/app/heatcheckr/id6757223698">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck">Google Play</a>
+    <a href="mailto:heatcheckrapp@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+// ─── Scroll Reveal ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+      let delay = 0;
+      siblings.forEach((s, idx) => { if (s === entry.target) delay = idx * 60; });
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── FAQ Toggle ───
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
