@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>The NBA Daily Briefing — Spoiler-Free Morning Digest | HeatCheckr</title>
+<meta name="description" content="A spoiler-free NBA digest every day: the biggest storyline, a game worth watching, and news from around the league — never a score or a winner. Read the free Main Story, get the full briefing in the HeatCheckr app.">
+<meta name="keywords" content="nba daily briefing, spoiler free nba news, nba digest no spoilers, nba morning recap spoiler free, what nba game to watch, nba storylines without spoilers, spoiler free nba app">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.heatcheckr.com/briefing/">
+<meta property="og:title" content="The NBA Daily Briefing — Spoiler-Free Morning Digest | HeatCheckr">
+<meta property="og:description" content="A spoiler-free NBA digest every day. Read the free Main Story, get the full briefing in the app.">
+<meta property="og:image" content="https://www.heatcheckr.com/images/icon.png">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.heatcheckr.com/briefing/">
+<meta property="twitter:title" content="The NBA Daily Briefing — Spoiler-Free Morning Digest | HeatCheckr">
+<meta property="twitter:description" content="A spoiler-free NBA digest every day. Read the free Main Story, get the full briefing in the app.">
+<meta property="twitter:image" content="https://www.heatcheckr.com/images/icon.png">
+
+<link rel="icon" type="image/png" href="/images/icon.png">
+<link rel="canonical" href="https://www.heatcheckr.com/briefing/">
+<meta name="robots" content="index, follow">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0F1115">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The NBA Daily Briefing",
+  "url": "https://www.heatcheckr.com/briefing/",
+  "description": "A spoiler-free NBA digest every day: the biggest storyline, a game worth watching, and news from around the league — never a score or a winner.",
+  "isPartOf": { "@type": "WebSite", "name": "HeatCheckr", "url": "https://www.heatcheckr.com" },
+  "about": { "@type": "SoftwareApplication", "name": "HeatCheckr", "applicationCategory": "SportsApplication", "operatingSystem": "iOS, Android" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the HeatCheckr Daily Briefing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Daily Briefing is a spoiler-free NBA digest in the HeatCheckr app — each day it covers the biggest storyline, a game worth watching, and news from around the league, all worded so it never gives away a score or a winner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Daily Briefing free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Main Story is free for everyone. Heat Pass unlocks the full briefing, including Watch Today, Coming Up Tonight, around-the-league news, and the Stat of the Day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the briefing contain spoilers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every line is written to stay spoiler-free — it never reveals final scores, winners, or results, so you can decide what to watch without knowing how it ended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work in the off-season?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On days without games the briefing covers trades, free agency, draft news, and the storylines shaping the league, so it keeps you up to speed all year."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+<style>
+  /* ── Briefing page-specific styles ── */
+  .br-hero { padding: 140px 24px 56px; text-align: center; position: relative; overflow: hidden; }
+  .br-hero-glow {
+    position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,8,42,0.16) 0%, transparent 70%);
+    top: 40%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; filter: blur(60px);
+  }
+  .br-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,8,42,0.12); border: 1px solid rgba(201,8,42,0.35);
+    border-radius: 100px; padding: 6px 18px; font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .br-hero h1 {
+    font-family: var(--font-display); font-size: clamp(36px, 6vw, 60px); font-weight: 800;
+    letter-spacing: -2px; line-height: 1.06; color: var(--text); max-width: 720px; margin: 0 auto;
+  }
+  .br-hero h1 .accent { color: var(--accent); }
+  .br-hero-sub { margin: 22px auto 0; font-size: 16px; color: var(--text-mid); max-width: 600px; font-weight: 300; line-height: 1.7; }
+
+  /* The preview card mirrors the in-app free-user briefing */
+  .briefing-preview-wrap { max-width: 560px; margin: 40px auto 0; }
+  .preview-caption { text-align: center; color: var(--text-dim); font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+  .briefing-card {
+    background: #0F172A; border: 1px solid rgba(51,65,85,0.6); border-radius: 16px;
+    padding: 18px 18px 16px; text-align: left;
+  }
+  .bc-title { color: var(--text-mid); font-size: 13px; font-weight: 600; letter-spacing: 0.3px; text-align: center; margin-bottom: 14px; }
+  .bc-eyebrow { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: 0.6px; margin-bottom: 6px; }
+  .bc-headline { color: var(--text); font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+  .bc-body { color: var(--text-mid); font-size: 14.5px; line-height: 1.55; font-weight: 300; }
+  .bc-section { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(51,65,85,0.5); }
+  .bc-section-label { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: 0.6px; margin-bottom: 8px; }
+  .bc-pickrow { display: flex; align-items: center; gap: 8px; }
+  .bc-matchup { color: var(--text); font-size: 16px; font-weight: 700; flex: 1; }
+  .bc-score { color: var(--text); font-size: 22px; font-weight: 800; }
+  .bc-hype { border-radius: 999px; background: rgba(246,222,155,0.14); border: 1px solid rgba(246,222,155,0.4); padding: 2px 8px; }
+  .bc-hype span { color: #F6DE9B; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
+  .bc-headline-sm { color: var(--text); font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+  .bc-statnum { color: var(--text); font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .bc-locked { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+  .bc-locked svg { flex-shrink: 0; }
+  .bc-locked span { color: var(--text-dim); font-size: 13px; font-style: italic; }
+  .bc-hit { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+  .bc-hit:last-child { margin-bottom: 0; }
+  .bc-hit-emoji { font-size: 18px; width: 22px; text-align: center; }
+  .bc-disclaimer { color: var(--text-dim); font-size: 11px; margin-top: 16px; text-align: center; }
+
+  /* Download lead (replaces the in-app "Start Free Trial") */
+  .br-download { max-width: 560px; margin: 22px auto 0; text-align: center; }
+  .br-download h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .br-download p { color: var(--text-mid); font-size: 14px; font-weight: 300; margin-bottom: 20px; }
+  .br-cta-row { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; }
+
+  /* Value sections */
+  .br-value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .br-value-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 26px 22px; }
+  .br-value-card .ic { font-size: 22px; margin-bottom: 12px; }
+  .br-value-card h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .br-value-card p { color: var(--text-mid); font-size: 13.5px; line-height: 1.6; font-weight: 300; }
+  @media (max-width: 768px) { .br-value-grid { grid-template-columns: 1fr; } }
+
+  .br-bottom-cta { text-align: center; padding: 72px 24px; position: relative; overflow: hidden; }
+  .br-bottom-cta h2 { font-family: var(--font-display); font-size: clamp(26px, 5vw, 40px); font-weight: 800; letter-spacing: -1.5px; color: var(--text); margin-bottom: 14px; }
+  .br-bottom-cta p { color: var(--text-mid); font-size: 15px; max-width: 440px; margin: 0 auto 32px; font-weight: 300; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/icon.png" alt="HeatCheckr" class="nav-icon" />
+    HeatCheckr</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/#features">Features</a>
+    <a href="/briefing/">Briefing</a>
+    <a href="/#labels">Labels</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/heatpass/" class="nav-cta">Heat Pass</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="br-hero">
+  <div class="br-hero-glow"></div>
+  <div class="br-eyebrow reveal">Daily Briefing</div>
+  <h1 class="reveal">Your spoiler-free <span class="accent">NBA digest</span>, every day.</h1>
+  <p class="br-hero-sub reveal">The biggest storyline, a game worth watching, and news from around the league — worded so it never gives away a score or a winner. Read the Main Story free; the full briefing lives in the app.</p>
+
+  <!-- Free-user preview (same structure as the app: Main Story shown, the rest locked) -->
+  <div class="briefing-preview-wrap reveal">
+    <p class="preview-caption">A look at the Daily Briefing</p>
+    <div class="briefing-card">
+      <div class="bc-title">Daily Briefing</div>
+
+      <div class="bc-eyebrow">MAIN STORY</div>
+      <div class="bc-headline">A Marquee Tuesday: Contenders Collide Coast to Coast</div>
+      <div class="bc-body">Tonight delivers one of the deepest slates of the week, headlined by two title contenders meeting for the first time this season. Both teams arrive healthy and rolling, with their stars trading MVP buzz over the past month. Expect a measuring-stick game with real seeding stakes — exactly the kind of night worth carving out time for.</div>
+
+      <div class="bc-section">
+        <div class="bc-section-label">WATCH TODAY</div>
+        <div class="bc-pickrow">
+          <span class="bc-matchup">Celtics vs Nuggets</span>
+          <span class="bc-score">8.6</span>
+        </div>
+        <div class="bc-locked">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Unlock why it is worth watching</span>
+        </div>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-label">COMING UP TONIGHT</div>
+        <div class="bc-pickrow">
+          <span class="bc-matchup">Lakers vs Warriors</span>
+          <span class="bc-hype"><span>MUST-WATCH</span></span>
+        </div>
+        <div class="bc-locked">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Unlock why to tune in</span>
+        </div>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-label">AROUND THE LEAGUE</div>
+        <div class="bc-hit">
+          <span class="bc-hit-emoji">📈</span>
+          <div style="flex:1;">
+            <div class="bc-headline-sm">A young core keeps surging up the standings</div>
+            <div class="bc-locked">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Unlock the full update</span>
+            </div>
+          </div>
+        </div>
+        <div class="bc-hit">
+          <span class="bc-hit-emoji">🔁</span>
+          <div style="flex:1;">
+            <div class="bc-headline-sm">Trade buzz heats up ahead of the deadline</div>
+            <div class="bc-locked">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Unlock the full update</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bc-section">
+        <div class="bc-section-label">STAT OF THE DAY</div>
+        <div class="bc-statnum">7</div>
+        <div class="bc-locked">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Unlock the story behind the number</span>
+        </div>
+      </div>
+
+      <div class="bc-disclaimer">Auto-generated · spoiler-free</div>
+    </div>
+  </div>
+
+  <!-- Download lead -->
+  <div class="br-download reveal">
+    <h3>Get the full briefing</h3>
+    <p>The Main Story is free. Unlock Watch Today, Coming Up Tonight, around-the-league news, and the Stat of the Day in the app.</p>
+    <div class="br-cta-row">
+      <a href="https://apps.apple.com/app/heatcheckr/id6757223698" class="btn-store btn-apple" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="store-text">
+          <span class="store-sub">Download on the</span>
+          <span class="store-name">App Store</span>
+        </div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck&pcampaignid=web_share" class="btn-store btn-google" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+        <div class="store-text">
+          <span class="store-sub">Get it on</span>
+          <span class="store-name">Google Play</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- What's inside / value -->
+<section id="inside" style="padding-top:40px;">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">What's inside</p>
+      <h2 class="section-title">A spoiler-free read, every morning.</h2>
+      <p class="section-desc">The Daily Briefing turns the firehose of NBA news into a short, spoiler-safe read — so you know what matters and what to watch, without learning how anything ended.</p>
+    </div>
+    <div class="br-value-grid">
+      <div class="br-value-card reveal">
+        <div class="ic">📰</div>
+        <h3>The Main Story</h3>
+        <p>The single biggest storyline of the day, framed spoiler-free — the marquee matchup, a blockbuster trade, or the news shaping the league. Free for everyone.</p>
+      </div>
+      <div class="br-value-card reveal">
+        <div class="ic">🏀</div>
+        <h3>Watch Today &amp; Tonight</h3>
+        <p>The game from last night worth catching up on, plus the matchup to plan your evening around — with an excitement score and the reason it made the cut.</p>
+      </div>
+      <div class="br-value-card reveal">
+        <div class="ic">🔓</div>
+        <h3>Around the league &amp; the Stat</h3>
+        <p>News from around the NBA and a number that tells a story. The full briefing — including these — is unlocked with Heat Pass.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Spoiler-free guarantee -->
+<section style="padding-top:8px;">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Spoiler-free guarantee</p>
+      <h2 class="section-title" style="text-align:center; max-width:100%;">Never a score. Never a winner.</h2>
+      <p class="section-desc" style="margin-left:auto; margin-right:auto;">Every briefing is written to stay spoiler-free. It talks about matchups, stars, and stakes going in — never final scores, winners, or results. Perfect for European fans on delay, busy parents, and anyone who wants to pick the right game without knowing how it ended. On quiet days and through the off-season, it covers trades, free agency, and draft news so you stay in the loop year-round.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">Questions about the briefing.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the HeatCheckr Daily Briefing? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The Daily Briefing is a spoiler-free NBA digest in the HeatCheckr app — each day it covers the biggest storyline, a game worth watching, and news from around the league, all worded so it never gives away a score or a winner.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is the Daily Briefing free? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The Main Story is free for everyone. Heat Pass unlocks the full briefing, including Watch Today, Coming Up Tonight, around-the-league news, and the Stat of the Day.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Does the briefing contain spoilers? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No. Every line is written to stay spoiler-free — it never reveals final scores, winners, or results, so you can decide what to watch without knowing how it ended.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Does it work in the off-season? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. On days without games the briefing covers trades, free agency, draft news, and the storylines shaping the league, so it keeps you up to speed all year.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<div class="br-bottom-cta">
+  <div class="br-hero-glow"></div>
+  <h2 class="reveal">Read today's briefing.</h2>
+  <p class="reveal">Download HeatCheckr — the Main Story is free, and NBA coverage always is.</p>
+  <div class="br-cta-row reveal">
+    <a href="https://apps.apple.com/app/heatcheckr/id6757223698" class="btn-store btn-apple" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">Download on the</span>
+        <span class="store-name">App Store</span>
+      </div>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck" class="btn-store btn-google" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+      <div class="store-text">
+        <span class="store-sub">Get it on</span>
+        <span class="store-name">Google Play</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="/images/icon.png" alt="HeatCheckr" class="footer-icon" />
+    HeatCheckr</span>
+  </div>
+  <p>Not affiliated with the NBA or WNBA · © 2025 JDK Development · All rights reserved</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/briefing/">Daily Briefing</a>
+    <a href="/heatpass/">Heat Pass</a>
+    <a href="/download/">Download</a>
+    <a href="https://apps.apple.com/app/heatcheckr/id6757223698">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.jdkdevelopment.heatcheck&pcampaignid=web_share">Google Play</a>
+    <a href="mailto:heatcheckrapp@gmail.com">Contact</a>
+    <a href="https://buymeacoffee.com/jdkdevelopment">Support</a>
+  </div>
+</footer>
+
+<script>
+// ─── Scroll Reveal ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+      let delay = 0;
+      siblings.forEach((s, idx) => { if (s === entry.target) delay = idx * 60; });
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── FAQ Toggle ───
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

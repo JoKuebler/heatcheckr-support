@@ -273,6 +273,7 @@
   .btn-apple {
     background: #fff;
     color: #000;
+    border: 1px solid transparent; /* match btn-google's 1px border so both buttons are the same height */
   }
   .btn-apple:hover { box-shadow: 0 8px 32px rgba(255,255,255,0.15); }
   .btn-google {
@@ -876,7 +877,9 @@
   /* ─── Responsive ─── */
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
-    .nav-links { display: none; }
+    /* Keep the primary Heat Pass CTA reachable on mobile; hide only the secondary text links. */
+    .nav-links { gap: 14px; }
+    .nav-links a:not(.nav-cta) { display: none; }
     .how-grid { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
     .support-grid { grid-template-columns: 1fr; }
