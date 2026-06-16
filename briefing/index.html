@@ -126,6 +126,8 @@
   .bc-hype span { color: #F6DE9B; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
   .bc-headline-sm { color: var(--text); font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
   .bc-statnum { color: var(--text); font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .bc-hit-body { color: var(--text-mid); font-size: 13.5px; line-height: 1.55; font-weight: 300; }
+  .bc-context { color: var(--text-mid); font-size: 14px; line-height: 1.55; font-weight: 300; }
   .bc-locked { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
   .bc-locked svg { flex-shrink: 0; }
   .bc-locked span { color: var(--text-dim); font-size: 13px; font-style: italic; }
@@ -176,73 +178,47 @@
   <div class="br-hero-glow"></div>
   <div class="br-eyebrow reveal">Daily Briefing</div>
   <h1 class="reveal">Your spoiler-free <span class="accent">NBA digest</span>, every day.</h1>
-  <p class="br-hero-sub reveal">The biggest storyline, a game worth watching, and news from around the league — worded so it never gives away a score or a winner. Read the Main Story free; the full briefing lives in the app.</p>
+  <p class="br-hero-sub reveal">The biggest storyline, a game worth watching, and news from around the league — worded so it never gives away a score or a winner. Here's a full example below; open the app for a fresh one every day.</p>
 
-  <!-- Free-user preview (same structure as the app: Main Story shown, the rest locked) -->
+  <!-- A full example briefing (static showcase). The app delivers a fresh one daily. -->
   <div class="briefing-preview-wrap reveal">
-    <p class="preview-caption">A look at the Daily Briefing</p>
+    <p class="preview-caption">An example Daily Briefing</p>
     <div class="briefing-card">
       <div class="bc-title">Daily Briefing</div>
 
       <div class="bc-eyebrow">MAIN STORY</div>
-      <div class="bc-headline">A Marquee Tuesday: Contenders Collide Coast to Coast</div>
-      <div class="bc-body">Tonight delivers one of the deepest slates of the week, headlined by two title contenders meeting for the first time this season. Both teams arrive healthy and rolling, with their stars trading MVP buzz over the past month. Expect a measuring-stick game with real seeding stakes — exactly the kind of night worth carving out time for.</div>
-
-      <div class="bc-section">
-        <div class="bc-section-label">WATCH TODAY</div>
-        <div class="bc-pickrow">
-          <span class="bc-matchup">Celtics vs Nuggets</span>
-          <span class="bc-score">8.6</span>
-        </div>
-        <div class="bc-locked">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Unlock why it is worth watching</span>
-        </div>
-      </div>
-
-      <div class="bc-section">
-        <div class="bc-section-label">COMING UP TONIGHT</div>
-        <div class="bc-pickrow">
-          <span class="bc-matchup">Lakers vs Warriors</span>
-          <span class="bc-hype"><span>MUST-WATCH</span></span>
-        </div>
-        <div class="bc-locked">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Unlock why to tune in</span>
-        </div>
-      </div>
+      <div class="bc-headline">With the Finals Over, the NBA's Trade and Draft Frenzy Begins</div>
+      <div class="bc-body">The confetti has barely settled in New York, but the rest of the NBA has already turned the page. The off-season is officially underway, and with it, the rumor mill is kicking into high gear. According to reports, all 30 teams are now eligible to make trades, and negotiations with free agents and extension-eligible players have begun. The focus now shifts from the court to the front office, with the NBA Draft just over a week away and free agency looming on June 30. Expect a flurry of activity as teams that fell short look to retool and challenge for the throne next season.</div>
 
       <div class="bc-section">
         <div class="bc-section-label">AROUND THE LEAGUE</div>
         <div class="bc-hit">
-          <span class="bc-hit-emoji">📈</span>
+          <span class="bc-hit-emoji">🤔</span>
           <div style="flex:1;">
-            <div class="bc-headline-sm">A young core keeps surging up the standings</div>
-            <div class="bc-locked">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Unlock the full update</span>
-            </div>
+            <div class="bc-headline-sm">What's Next for the Champion Knicks?</div>
+            <div class="bc-hit-body">The Knicks' front office faces a major decision on the future of Karl-Anthony Towns. The All-Star center, a key piece in their title run, is now eligible for a massive contract extension that could pay him close to $70 million per year. The decision will shape the franchise's ability to build around its championship core.</div>
           </div>
         </div>
         <div class="bc-hit">
-          <span class="bc-hit-emoji">🔁</span>
+          <span class="bc-hit-emoji">👀</span>
           <div style="flex:1;">
-            <div class="bc-headline-sm">Trade buzz heats up ahead of the deadline</div>
-            <div class="bc-locked">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Unlock the full update</span>
-            </div>
+            <div class="bc-headline-sm">Timberwolves Eyeing Another Star Creator</div>
+            <div class="bc-hit-body">Minnesota is reportedly looking to add another high-level scorer to pair with Anthony Edwards as they aim to compete with the West's elite. According to The Athletic, the Timberwolves are monitoring the situations of stars like Kyrie Irving and Ja Morant as potential trade targets.</div>
+          </div>
+        </div>
+        <div class="bc-hit">
+          <span class="bc-hit-emoji">🃏</span>
+          <div style="flex:1;">
+            <div class="bc-headline-sm">Wizards Hold the Top Card in a Stacked Draft</div>
+            <div class="bc-hit-body">The Washington Wizards are on the clock. After winning the draft lottery in May, they hold the No. 1 pick in what is considered a strong 2026 draft class. The top of the board features several potential franchise-altering talents, including AJ Dybantsa, Darryn Peterson, and Cameron Boozer.</div>
           </div>
         </div>
       </div>
 
       <div class="bc-section">
         <div class="bc-section-label">STAT OF THE DAY</div>
-        <div class="bc-statnum">7</div>
-        <div class="bc-locked">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 11h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/><path d="M8 11V7a4 4 0 118 0v4" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Unlock the story behind the number</span>
-        </div>
+        <div class="bc-statnum">16</div>
+        <div class="bc-context">Years since the Washington Wizards last held the No. 1 overall pick in the NBA Draft. They selected John Wall in 2010 and now have a chance to add another cornerstone piece to their franchise.</div>
       </div>
 
       <div class="bc-disclaimer">Auto-generated · spoiler-free</div>
@@ -251,8 +227,8 @@
 
   <!-- Download lead -->
   <div class="br-download reveal">
-    <h3>Get the full briefing</h3>
-    <p>The Main Story is free. Unlock Watch Today, Coming Up Tonight, around-the-league news, and the Stat of the Day in the app.</p>
+    <h3>Get a fresh briefing every day</h3>
+    <p>This is one example. Open HeatCheckr for a new spoiler-free briefing every day — the Main Story is free, and the full briefing is included with Heat Pass.</p>
     <div class="br-cta-row">
       <a href="https://apps.apple.com/app/heatcheckr/id6757223698" class="btn-store btn-apple" target="_blank" rel="noopener noreferrer">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
