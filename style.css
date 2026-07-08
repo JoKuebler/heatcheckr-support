@@ -986,3 +986,61 @@
   @media (max-width: 768px) {
     .press-grid { grid-template-columns: 1fr; }
   }
+
+/* ── Floating "Buy me a coffee" button ── */
+.bmc-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  background: #FFDD00;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+.bmc-float.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.bmc-float-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 6px 12px 18px;
+  color: #0D0C22;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.bmc-float-link:hover { color: #0D0C22; }
+.bmc-float-emoji { font-size: 18px; line-height: 1; }
+.bmc-float-text { white-space: nowrap; }
+.bmc-float-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.12);
+  color: #0D0C22;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.bmc-float-close:hover { background: rgba(0, 0, 0, 0.22); }
+@media (max-width: 480px) {
+  .bmc-float { right: 12px; bottom: 12px; }
+  .bmc-float-link { font-size: 14px; padding: 10px 6px 10px 14px; }
+}

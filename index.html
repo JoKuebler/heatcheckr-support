@@ -640,6 +640,15 @@
   </div>
 </footer>
 
+<!-- Floating Buy Me a Coffee (appears on scroll, dismissible) -->
+<div id="bmc-float" class="bmc-float" hidden>
+  <a href="https://buymeacoffee.com/jdkdevelopment" target="_blank" rel="noopener noreferrer" class="bmc-float-link" aria-label="Buy me a coffee">
+    <span class="bmc-float-emoji" aria-hidden="true">☕</span>
+    <span class="bmc-float-text">Buy me a coffee</span>
+  </a>
+  <button type="button" class="bmc-float-close" aria-label="Dismiss" onclick="dismissBmc()">&times;</button>
+</div>
+
 <script>
 // ─── Scroll Reveal ───
 const reveals = document.querySelectorAll('.reveal');
@@ -711,6 +720,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // noop
   }
 });
+
+// ─── Floating Buy Me a Coffee (reveal on scroll + dismissible) ───
+(function () {
+  var bmc = document.getElementById('bmc-float');
+  if (!bmc) return;
+  try { if (localStorage.getItem('bmc_dismissed') === '1') return; } catch (e) {}
+  bmc.hidden = false;
+  var shown = false;
+  function reveal() {
+    if (shown) return;
+    if (window.scrollY > 400) {
+      bmc.classList.add('show');
+      shown = true;
+      window.removeEventListener('scroll', reveal);
+    }
+  }
+  window.addEventListener('scroll', reveal, { passive: true });
+  reveal(); // handle a page that's already scrolled
+})();
+
+function dismissBmc() {
+  var bmc = document.getElementById('bmc-float');
+  if (!bmc) return;
+  bmc.classList.remove('show');
+  try { localStorage.setItem('bmc_dismissed', '1'); } catch (e) {}
+  setTimeout(function () { bmc.hidden = true; }, 300);
+}
 </script>
 </body>
 </html>
