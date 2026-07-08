@@ -1033,12 +1033,11 @@
   border: none;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.12);
-  color: #0D0C22;
-  font-size: 18px;
-  line-height: 1;
   cursor: pointer;
   transition: background .2s ease;
+  flex: none;
 }
+.bmc-float-close svg { display: block; }
 .bmc-float-close:hover { background: rgba(0, 0, 0, 0.22); }
 @media (max-width: 480px) {
   .bmc-float { right: 12px; bottom: 12px; }
