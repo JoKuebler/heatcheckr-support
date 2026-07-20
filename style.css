@@ -812,6 +812,7 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     color: var(--text);
+    text-decoration: none;
     font-family: var(--font-body);
     font-size: 15px;
     font-weight: 600;

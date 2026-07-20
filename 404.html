@@ -1,17 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Redirecting…</title>
-  <script>
-    // GitHub Pages serves this 404.html for any unknown path.
-    // Convert the path into a hash fragment and redirect to the main page
-    // so that /privacy  →  /#privacy  and  /terms  →  /#terms
-    var path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
-    var segment = path.split('/').pop() || '';
-    var hash = segment ? '#' + segment : '';
-    window.location.replace(window.location.origin + '/' + hash);
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — HeatCheckr</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="/images/icon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<style>
+  .nf-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 20px;
+    background: #0F1115;
+  }
+  .nf-card { max-width: 460px; width: 100%; }
+  .nf-card img { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 24px; display: block; }
+  .nf-card h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 800; color: var(--text); margin: 0 0 8px; }
+  .nf-card p { color: var(--text-mid); font-size: 15px; line-height: 1.7; margin: 0 auto 28px; max-width: 380px; }
+  .nf-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .nf-links a {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--card);
+  }
+  .nf-links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+</style>
 </head>
-<body></body>
+<body>
+  <main class="nf-wrap">
+    <div class="nf-card">
+      <img src="/images/icon.png" alt="HeatCheckr" />
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist or has moved. Try one of these:</p>
+      <div class="nf-links">
+        <a class="primary" href="/">Home</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/termsofservice/">Terms of Service</a>
+        <a href="/download/">Download</a>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
