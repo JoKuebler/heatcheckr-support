@@ -30,20 +30,28 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Heat Pass",
+  "@type": "SoftwareApplication",
+  "name": "HeatCheckr Heat Pass",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "iOS, Android",
   "image": [
     "https://www.heatcheckr.com/images/icon.png",
     "https://www.heatcheckr.com/images/Image01.png",
     "https://www.heatcheckr.com/images/Image02.png"
   ],
+  "screenshot": [
+    "https://www.heatcheckr.com/images/Image01.png",
+    "https://www.heatcheckr.com/images/Image02.png"
+  ],
   "description": "Premium subscription for HeatCheckr. Unlocks WNBA coverage, EuroLeague (coming September 2026), the full Heat Report (Weekly, Monthly and season history) with favorite-team tracking, multi-team favorites, and an ad-free experience.",
-  "brand": { "@type": "Brand", "name": "HeatCheckr" },
+  "author": { "@type": "Organization", "name": "HeatCheckr" },
+  "publisher": { "@type": "Organization", "name": "HeatCheckr", "url": "https://www.heatcheckr.com" },
   "url": "https://www.heatcheckr.com/heatpass/",
+  "isPartOf": { "@type": "SoftwareApplication", "name": "HeatCheckr", "url": "https://www.heatcheckr.com" },
   "offers": [
-    { "@type": "Offer", "name": "Monthly", "price": "0.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-    { "@type": "Offer", "name": "Yearly", "price": "9.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-    { "@type": "Offer", "name": "Lifetime", "price": "19.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+    { "@type": "Offer", "name": "Monthly", "price": "0.99", "priceCurrency": "EUR", "category": "subscription", "availability": "https://schema.org/InStock", "url": "https://www.heatcheckr.com/heatpass/" },
+    { "@type": "Offer", "name": "Yearly", "price": "9.99", "priceCurrency": "EUR", "category": "subscription", "availability": "https://schema.org/InStock", "url": "https://www.heatcheckr.com/heatpass/" },
+    { "@type": "Offer", "name": "Lifetime", "price": "19.99", "priceCurrency": "EUR", "category": "one-time purchase", "availability": "https://schema.org/InStock", "url": "https://www.heatcheckr.com/heatpass/" }
   ]
 }
 </script>
