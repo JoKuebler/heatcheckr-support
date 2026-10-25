@@ -103,7 +103,7 @@
     line-height: 0;
   }
   .nav-social-link:hover { color: var(--text); }
-  .nav-social-link svg { width: 18px; height: 18px; fill: currentColor; }
+  .nav-social-link svg { width: 24px; height: 24px; fill: currentColor; }
   .nav-social-link {
     position: absolute;
     right: 20px;
