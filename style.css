@@ -95,16 +95,16 @@
     transition: transform 0.2s, box-shadow 0.2s !important;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
-  .nav-x-link {
+  .nav-social-link {
     color: var(--text-mid);
     display: flex;
     align-items: center;
     transition: color 0.2s;
     line-height: 0;
   }
-  .nav-x-link:hover { color: var(--text); }
-  .nav-x-link svg { width: 18px; height: 18px; fill: currentColor; }
-  .nav-x-link {
+  .nav-social-link:hover { color: var(--text); }
+  .nav-social-link svg { width: 18px; height: 18px; fill: currentColor; }
+  .nav-social-link {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -132,6 +132,7 @@
     text-align: center;
     padding: 100px 12px 40px;
     position: relative;
+    overflow-x: clip; /* the 700px .hero-glow otherwise widens the page on phones */
   }
   .hero-glow {
     position: absolute;
