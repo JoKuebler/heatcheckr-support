@@ -392,6 +392,41 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* ─── Last night's games (filled by scripts/update_games.py) ─── */
+  .ln-list { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ln-game {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 14px 18px; min-width: 0;
+  }
+  .ln-score {
+    flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 3px solid #2B2F36; color: var(--text);
+    font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums;
+  }
+  /* Same score colors as the app's card border (theme.ts scoreBorder1-10). */
+  .ln-s1 { border-color: #2B2F36; } .ln-s2 { border-color: #3C2F39; } .ln-s3 { border-color: #52363C; }
+  .ln-s4 { border-color: #6B463D; } .ln-s5 { border-color: #8B653D; } .ln-s6 { border-color: #A98540; }
+  .ln-s7 { border-color: #C59E47; } .ln-s8 { border-color: #DAB65A; } .ln-s9 { border-color: #E9CA76; }
+  .ln-s10 { border-color: #F6DE9B; }
+  .ln-body { min-width: 0; }
+  .ln-teams { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; margin: 0; }
+  .ln-at { color: var(--text-dim); font-weight: 500; }
+  .ln-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .ln-pills:empty { display: none; }
+  .ln-pill {
+    font-size: 11.5px; font-weight: 600; line-height: 1;
+    padding: 6px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap;
+  }
+  .ln-significance { color: var(--cat-significance); }
+  .ln-competitiveness { color: var(--cat-competitiveness); }
+  .ln-highlights { color: var(--cat-highlights); }
+  .ln-lowlights { color: var(--cat-lowlights); }
+  .ln-more { margin-top: 24px; color: var(--text-mid); font-size: 14px; }
+  .ln-more a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  @media (max-width: 760px) { .ln-list { grid-template-columns: 1fr; } }
+
   /* ─── How It Works ─── */
   .how-grid {
     display: grid;

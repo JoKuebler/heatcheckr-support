@@ -1,0 +1,44 @@
+# Refreshes the "Last night's NBA games" section on the home page once a day.
+# Runs scripts/update_games.py (reads the public API, no secrets), commits
+# index.html + sitemap.xml only when they changed, then asks Pages to rebuild.
+name: Update last night's games
+
+on:
+  schedule:
+    # 07:47 UTC = 08:47 Berlin in winter, 09:47 in summer: after the last
+    # NBA backup fetch (08:15 Berlin). GitHub may start it a few minutes late.
+    - cron: '47 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-games
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild the games section
+        run: python3 scripts/update_games.py
+      - name: Commit and publish if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html sitemap.xml
+          git commit -m "Update last night's games"
+          git push
+          # A push made with the workflow token may not start a Pages build
+          # on its own, so request one.
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "Pages build request failed; the push may still have triggered one."
