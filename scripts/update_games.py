@@ -108,7 +108,7 @@ def render(games, day, is_last_night):
         '    <ol class="ln-list">',
         *rows,
         "    </ol>",
-        '    <p class="ln-more">Highlights, box scores, alerts for your team, plus WNBA, EuroLeague and NFL are in the app. <a href="/download/">Get HeatCheckr free &rarr;</a></p>',
+        '    <p class="ln-more">In the app: the HeatFlow chart, highlights, box scores, the Daily Briefing, the weekly Heat Report, alerts for your favorite teams, plus WNBA, EuroLeague and NFL.</p>',
         "    " + END,
     ])
 
